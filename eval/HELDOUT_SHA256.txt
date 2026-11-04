@@ -1,0 +1,6 @@
+# Held-out evaluation files, frozen before the final run (2026-11-04).
+# The files are kept outside this repository until that run, then published unchanged next to the results.
+# Check after publication: sha256sum eval/heldout/<file>
+set A (headline): 29 questions (17 single-hop, 6 multi-hop, 6 unanswerable) + 10 paraphrases
+9ae555c228aafa9b9d033d7f8062c84e2d4c579d55332322429af5877c33acba  heldout_v1.jsonl
+ee7af4f01e46f8a6547b097ece0f41953340877b0fd9d643d9168fef899ed6d2  paraphrases_v1.jsonl
