@@ -35,7 +35,8 @@ class Budget:
 
     def reserve_chat(self, prompt_tokens: int, max_tokens: int) -> float:
         """Reserve chat cost; return the reservation (EUR). Raise BudgetExceeded if spent+reserved+this > stop.
-        Emits one warning (logging.warning, sets warned) the first time spent+reserved passes warn_eur."""
+        Emits one warning (logging.warning, sets warned) the first time spent+reserved INCLUDING this
+        reservation passes warn_eur."""
         raise NotImplementedError
 
     def reserve_embed(self, input_tokens: int) -> float:
@@ -43,5 +44,5 @@ class Budget:
         raise NotImplementedError
 
     def commit(self, reservation_eur: float, kind: str, tokens_in: int, tokens_out: int = 0) -> float:
-        """Release the reservation, add the actual cost from the API's usage, append to log; return actual EUR."""
+        """kind is "chat" or "embed". Release the reservation, add the actual cost from the API's usage, append to log; return actual EUR."""
         raise NotImplementedError

@@ -34,8 +34,8 @@ class DateClauses:
 
 
 def format_units(units: list[Unit]) -> str:
-    """Tool output text: for each unit "[<source_id>] <header>\n<text>" (draft units get " (DRAFT)" after the
-    ID), separated by blank lines; NOT_FOUND if units is empty."""
+    """Tool output text: for each unit "[<source_id>] <header>\n<text>"; a draft unit's first line is
+    "[<source_id>] (DRAFT) <header>". Units separated by blank lines; NOT_FOUND if units is empty."""
     raise NotImplementedError
 
 

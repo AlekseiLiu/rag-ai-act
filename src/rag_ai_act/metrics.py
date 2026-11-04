@@ -30,8 +30,10 @@ def citation_precision(gold_ids: list[str], cited_ids: list[str]) -> float | Non
     raise NotImplementedError
 
 
-def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[tuple[str, str], bool]) -> dict:
-    """answers: system -> answer records; correct: (system, qid) -> grader verdict (answerables only).
+def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[tuple[str, str], bool] | None) -> dict:
+    """answers: system -> answer records; correct: (system, qid) -> grader verdict (answerables only), or
+    None before grading: then H1, H2, h1_by_era and multi_hop are None and only mechanical metrics are filled
+    (this is what draft_report.md shows). Items with a "paraphrase_of" key are ignored here.
 
     Returns per system: {"H1": {"n": k, "of": 24, "pct": ...}, "H2": {...era 2026 only}, "H3": {"n", "of"},
     "false_declines": {"n", "of"}, "h1_by_era": {"2024": {...}, "2026": {...}},

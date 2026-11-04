@@ -1,4 +1,4 @@
-"""The four systems S0..S3 and the answer contract.
+"""The four systems S0..S3 and the answer contract. In every run_* function BudgetExceeded propagates.
 
 Every system returns an Answer. JSONL record of an answer (results/<run>/answers_<system>.jsonl), one per line:
   {"qid", "system", "answer", "cited_ids", "declined", "valid", "retrieved_ids", "trace", "usage", "latency_s"}
@@ -58,5 +58,7 @@ def run_rag(question: str, llm: BaseChatModel, retriever: Retriever, budget: Bud
 def run_agent(question: str, llm: BaseChatModel, retriever: Retriever, store: ProvisionStore,
               dates: DateClauses, budget: Budget, max_tool_calls: int = MAX_TOOL_CALLS) -> Answer:
     """S3: langgraph.prebuilt.create_react_agent with tools.make_tools(...). After max_tool_calls tool calls
-    the agent must answer without further tools. Final message parsed with parse_answer; trace filled."""
+    the agent must answer without further tools. Final message parsed with parse_answer; trace filled.
+    Model or tool errors give an invalid Answer instead of a crash, EXCEPT BudgetExceeded, which always
+    propagates (also out of LangChain callbacks: use raise_error=True or explicit wrappers)."""
     raise NotImplementedError

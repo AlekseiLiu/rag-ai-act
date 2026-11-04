@@ -4,6 +4,9 @@
   ingest                      data/raw -> data/processed/{units,chunks}.jsonl (coverage-checked)
   index                       build FAISS index in data/index/ (embeddings, budget-capped)
   eval --questions P [--paraphrases P2] [--systems S0,S1,S2,S3] [--out results/<date>_<tag>]
+                              P2 records: same keys as questions plus "paraphrase_of": <qid of the original>;
+                              their answers go into the same answers_<S>.jsonl (paraphrase qids) and into the
+                              blind export; report.md uses them only for paraphrase stability
                               run systems, write answers_<S>.jsonl, blind.jsonl, blind_key.json, meta.json,
                               draft_report.md (mechanical metrics only); stops at the budget, keeping results
   report --results DIR        read verdicts_1.jsonl (+ verdicts_2.jsonl if present), write report.md with

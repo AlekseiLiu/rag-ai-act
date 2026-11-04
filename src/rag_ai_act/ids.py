@@ -9,7 +9,9 @@ Canonical forms (paragraph level is the finest gold level):
   GLHR:para204        draft high-risk guidelines paragraph; GLHR:sec3.2.7 unnumbered example box
   GLDEF:para43        definition guidelines paragraph
   Other annexes: AIA:Annex{roman} or AIA:Annex{roman}({point}); annex sub-points are dropped
-  (AnnexIII(1)(a) -> AnnexIII(1)). A paragraph reference without a doc prefix and without "Art"/"Annex"
+  (AnnexIII(1)(a) -> AnnexIII(1)). Annexes whose sections restart their point numbering have one unit per
+  SECTION, not per point: AIA:AnnexI(A), AIA:AnnexI(B); AIA:AnnexVIII(A), (B), (C); AIA:AnnexXI(1), (2)
+  (Annex XI "Section 1" -> AIA:AnnexXI(1)); points inside those sections are part of the section unit. A paragraph reference without a doc prefix and without "Art"/"Annex"
   (e.g. "para 204") is InvalidId.
 """
 

@@ -18,7 +18,7 @@ CORPUS = {
     "Commission_Guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_Regulation_EU_20241689_AI_ActEnglish_nf2skCqfRtJdFgGJAvCODoPCWZ4_112455.PDF": ("GLDEF", None),
 }
 DRAFT_DOCS = {"GLHR"}  # every unit of these docs has draft=True
-MAX_CHUNK_TOKENS = 1000  # tokens counted with tiktoken cl100k_base
+MAX_CHUNK_TOKENS = 1000  # tokens of the full chunk text (header included), tiktoken cl100k_base
 
 
 class CoverageError(RuntimeError):
@@ -68,11 +68,13 @@ def parse_units(text: str, doc: str, part: str | None = None) -> list[Unit]:
 
     AIA: one unit per article paragraph ("Article N" headings; numbered paragraphs "1.", "2.", "1a."); Art. 3
     one unit per definition point; Art. 113 one unit per (unnumbered) paragraph; single-paragraph articles
-    -> AIA:ArtN; annex points (AIA:AnnexIII(2)), Annex I sections (A)/(B). Points (a), (b) stay inside their
+    -> AIA:ArtN; annex points (AIA:AnnexIII(2)); one unit per section for Annexes I, VIII and XI (see ids.py). Points (a), (b) stay inside their
     paragraph. Deleted provisions produce no unit: in the consolidated text a deletion is a consolidation
     marker line (e.g. '▼M1') followed by a line of underscores ('__________') where the provision was.
     GLHR / GLDEF: one unit per numbered paragraph "(n)" at line start; unnumbered example boxes inside a
-    section are merged into ONE unit GLHR:sec{x.y.z} per section (all boxes of 3.2.7 -> one unit
+    section (the blocks headed "Practical example" / "Practical examples" inside a numbered section x.y.z;
+    any other "Example:" lines join the preceding numbered paragraph) are merged into ONE unit
+    GLHR:sec{x.y.z} per section (all boxes of 3.2.7 -> one unit
     GLHR:sec3.2.7, split into chunks if long). A paragraph broken by a page break stays one unit; stray number lines that
     are not paragraphs are ignored.
     """

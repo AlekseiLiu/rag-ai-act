@@ -13,7 +13,8 @@ from pathlib import Path
 
 
 def export_blind(items: list[dict], answers: dict[str, list[dict]], out_dir: Path, seed: int = 20261104) -> tuple[Path, Path]:
-    """Unanswerable items are not exported (their score is mechanical). Returns (blind.jsonl, blind_key.json)."""
+    """items may include paraphrase items (they need verdicts too). Unanswerable items are not exported
+    (their score is mechanical). Returns (blind.jsonl, blind_key.json)."""
     raise NotImplementedError
 
 
@@ -23,5 +24,5 @@ def load_verdicts(verdicts_path: Path, key_path: Path) -> dict[tuple[str, str], 
 
 
 def agreement(v1: dict[tuple[str, str], bool], v2: dict[tuple[str, str], bool]) -> dict:
-    """{"n": agreeing, "of": total, "pct": ..., "disagreements": [(system, qid), ...]}."""
+    """{"n": agreeing, "of": total, "pct": round(100*n/of, 1), "disagreements": [(system, qid), ...]}."""
     raise NotImplementedError
