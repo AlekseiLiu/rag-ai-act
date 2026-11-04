@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-ai-act"
+version = "0.1.0"
+description = "Cited Q&A over the EU AI Act (consolidated 2026) and the draft high-risk guidelines for grid AI: RAG and a LangGraph agent on Azure OpenAI, evaluated against baselines on a held-out set."
+requires-python = ">=3.12"
+license = "MIT"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+  "live: needs Azure credentials and network; never runs in CI",
+  "corpus: needs data/text/ (gitignored); skipped when absent",
+]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src", "tests"]

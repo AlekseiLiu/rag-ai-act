@@ -1,0 +1,22 @@
+"""Command line: python -m rag_ai_act <command> (Makefile targets wrap these).
+
+  fetch                       verify data/raw against data/SOURCES.md sha256; download what can be scripted
+  ingest                      data/raw -> data/processed/{units,chunks}.jsonl (coverage-checked)
+  index                       build FAISS index in data/index/ (embeddings, budget-capped)
+  eval --questions P [--paraphrases P2] [--systems S0,S1,S2,S3] [--out results/<date>_<tag>]
+                              run systems, write answers_<S>.jsonl, blind.jsonl, blind_key.json, meta.json,
+                              draft_report.md (mechanical metrics only); stops at the budget, keeping results
+  report --results DIR        read verdicts_1.jsonl (+ verdicts_2.jsonl if present), write report.md with
+                              H1, H2, H3, guard, verdict band, diagnostics, grading agreement
+  chunk-compare --questions P dev-only diagnostic: recall@5 of chunk=unit vs fixed 500-token chunks (50-token
+                              overlap, cut from the concatenated unit texts of each document), for BOTH the BM25
+                              and the dense retriever (re-embedding costs well under 0.01 EUR). A fixed chunk
+                              covers every unit whose text it overlaps; a gold ID counts as retrieved if any of
+                              the 5 retrieved chunks covers it (this favours fixed chunks slightly; say so)
+"""
+
+from __future__ import annotations
+
+
+def main(argv: list[str] | None = None) -> int:
+    raise NotImplementedError
