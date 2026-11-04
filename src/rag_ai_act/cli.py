@@ -8,9 +8,13 @@
                               their answers go into the same answers_<S>.jsonl (paraphrase qids) and into the
                               blind export; report.md uses them only for paraphrase stability
                               run systems, write answers_<S>.jsonl, blind.jsonl, blind_key.json, meta.json,
-                              draft_report.md (mechanical metrics only); stops at the budget, keeping results
-  report --results DIR        read verdicts_1.jsonl (+ verdicts_2.jsonl if present), write report.md with
-                              H1, H2, H3, guard, verdict band, diagnostics, grading agreement
+                              draft_report.md (mechanical metrics only); stops at the budget, keeping results.
+                              meta.json records the questions file by basename and sha256 only (never a path)
+  report --results DIR        H1/H2 come from verdicts_final.jsonl (grading pass 1 with the author's settled
+                              disagreements); if absent, from verdicts_1.jsonl and the report says "unsettled".
+                              Agreement of verdicts_1 vs verdicts_2 reported when both exist. report.md: H1, H2,
+                              H3, guard, verdict band, diagnostics incl. answer-only correctness (grader verdict
+                              alone, no citation rule) per system and era, paraphrase stability
   chunk-compare --questions P dev-only diagnostic: recall@5 of chunk=unit vs fixed 500-token chunks (50-token
                               overlap, cut from the concatenated unit texts of each document), for BOTH the BM25
                               and the dense retriever (re-embedding costs well under 0.01 EUR). A fixed chunk

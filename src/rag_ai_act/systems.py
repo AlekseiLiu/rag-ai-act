@@ -32,8 +32,19 @@ class Answer:
     usage: dict = field(default_factory=dict)  # {"tokens_in", "tokens_out", "eur"}
 
 
+ANSWER_RULES = ""  # the shared rules text (answer from sources, cite IDs, label drafts, decline rule, JSON
+# contract); used verbatim by answer_prompt (S0..S2) and as the core of the S3 agent's system prompt
+
+
+def agent_system_prompt() -> str:
+    """S3 system prompt = ANSWER_RULES verbatim + tool guidance only (what each of the three tools returns,
+    the ID formats they accept, the tool-call limit). No other rules, so S3 differs from S2 only in tools and
+    control flow."""
+    raise NotImplementedError
+
+
 def answer_prompt(question: str, context: str | None, with_id_scheme: bool) -> str:
-    """The shared answer prompt (S0..S2): rules (answer only from the context when given; cite source IDs;
+    """The shared answer prompt (S0..S2), built on ANSWER_RULES: rules (answer only from the context when given; cite source IDs;
     say when a cited source is a draft; decline with declined=true if the context does not contain the
     answer), the JSON contract, the context block (None for S0), and for S0 a description of the ID scheme."""
     raise NotImplementedError
