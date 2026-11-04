@@ -22,14 +22,6 @@ jobs:
           pip install -e .
       - name: Warm the tiktoken cache (tests block the network)
         run: python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')"
-      - name: Lint
-        run: ruff check src tests
-      - name: Test (leak test enabled)
-        run: HELDOUT_DIR=eval/heldout pytest -q
-      - name: Published reports match the committed verdicts
-        run: |
-          make reports PY=python
-          git diff --exit-code results/
       - name: Ingest the committed PDFs (sha256 check, coverage check, no Azure)
         run: |
           sudo apt-get update
@@ -38,3 +30,11 @@ jobs:
           set -o pipefail
           make ingest PY=python | tee ingest.log
           grep -q "ingest: 1249 units, 1273 chunks" ingest.log
+      - name: Lint
+        run: ruff check src tests
+      - name: Test (leak test enabled)
+        run: HELDOUT_DIR=eval/heldout pytest -q -rs
+      - name: Published reports match the committed verdicts
+        run: |
+          make reports PY=python
+          git diff --exit-code results/

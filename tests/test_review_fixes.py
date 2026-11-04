@@ -4,6 +4,7 @@ input, index staleness, error answers without messages, and the shared answer ru
 import hashlib
 import json
 import subprocess
+import sys
 from dataclasses import asdict, replace
 from pathlib import Path
 
@@ -292,7 +293,7 @@ def test_grading_export_refuses_unsafe_folders(blind_results, tmp_path, where):
 
 
 def test_cli_help_lists_grading_export():
-    proc = subprocess.run([str(ROOT / ".venv" / "bin" / "python"), "-m", "rag_ai_act", "--help"], cwd=ROOT,
+    proc = subprocess.run([sys.executable, "-m", "rag_ai_act", "--help"], cwd=ROOT,
                           capture_output=True, text=True, check=True)
     assert "grading-export" in proc.stdout
 
