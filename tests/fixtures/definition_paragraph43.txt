@@ -1,0 +1,7 @@
+(43) For example, physics-based systems may use machine learning techniques to improve
+     computational performance, accelerating traditional physics-based simulations or
+     estimating parameters, that are then fed into the established physics models. These
+     systems would fall outside the scope of the AI system definition. In this example,
+     machine learning models approximate complex atmospheric processes, such as cloud
+     microphysics or turbulence, enabling faster and more computationally efficient forecasts.
+

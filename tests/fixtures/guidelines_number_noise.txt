@@ -1,0 +1,37 @@
+
+(178) Point 2 of Annex III AI Act lists as high-risk six use cases of AI systems intended to be used as a
+      safety component in the management and operation of certain specific cases of critical
+      infrastructure, notably critical digital infrastructure, road traffic, or in the supply of water, gas,
+      heating or electricity. Recital 55 AI Act clarifies that this classification aims to address the risk that
+      a failure or malfunctioning of such a system could endanger the life and health of persons at large
+      scale and lead to appreciable disruptions in the ordinary conduct of social and economic activities.
+
+(179) However, even if certain AI systems may fall outside the scope of the critical infrastructure use case
+      listed in point 2 of Annex III AI Act, they could still be classified as high-risk pursuant to Article
+      6(1) AI Act where they are regulated by Union harmonisation legislation listed in Annex I (see
+      Section III). This may be the case, for example, for AI systems embedded in products covered by
+      the Union harmonisation legislation listed in Annex I AI Act, such as radio equipment, cableway
+      installations, civil aviation, or rail systems.
+
+
+
+                 3.2.1.   Overview of use cases and horizontal issues
+
+       Two conditions must be fulfilled for an AI system to fall within the high-risk use case listed in point
+       (2) of Annex III AI Act. First, the AI system must be intended to be used as a safety component
+       within the meaning of Article 3(14) AI Act. Second, that intended use must concern the management
+       and operation of critical digital infrastructure, road traffic, or in the supply of water, gas, heating or
+       electricity.
+
+                 i.   A safety component in critical infrastructure
+
+(180) As explained in Section III.2.2. above, the AI Act is based on a product safety-oriented legal
+      framework. Accordingly, the classification of an AI system as a safety component in critical
+
+                                                                                                              38
+        infrastructure must be assessed primarily in the light of the protective function performed by the AI
+        system itself. In the context of critical infrastructure, that assessment must focus on whether the AI
+        system directly protects the physical integrity of the infrastructure by reducing, preventing,
+        controlling, or mitigating risks that, if materialised, would lead to physical harm to people or
+        physical damage to property. In critical infrastructure, the functionality of the safety component is
+        intrinsically linked to the preservation of the physical integrity of that infrastructure.

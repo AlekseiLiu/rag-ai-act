@@ -1,0 +1,120 @@
+                                    Article 3
+                                   Definitions
+
+     For the purposes of this Regulation, the following definitions apply:
+
+
+     (1)   ‘AI system’ means a machine-based system that is designed to
+           operate with varying levels of autonomy and that may exhibit
+           adaptiveness after deployment, and that, for explicit or implicit
+           objectives, infers, from the input it receives, how to generate
+           outputs such as predictions, content, recommendations, or
+           decisions that can influence physical or virtual environments;
+
+
+     (2)   ‘risk’ means the combination of the probability of an occurrence
+           of harm and the severity of that harm;
+
+
+     (3)   ‘provider’ means a natural or legal person, public authority,
+           agency or other body that develops an AI system or a general-
+           purpose AI model or that has an AI system or a general-purpose
+           AI model developed and places it on the market or puts the AI
+           system into service under its own name or trademark, whether for
+           payment or free of charge;
+
+
+     (4)   ‘deployer’ means a natural or legal person, public authority,
+           agency or other body using an AI system under its authority
+           except where the AI system is used in the course of a personal
+           non-professional activity;
+
+
+     (5)   ‘authorised representative’ means a natural or legal person located
+           or established in the Union who has received and accepted a
+           written mandate from a provider of an AI system or a general-
+           purpose AI model to, respectively, perform and carry out on its
+           behalf the obligations and procedures established by this Regu­
+           lation;
+
+
+     (6)   ‘importer’ means a natural or legal person located or established
+           in the Union that places on the market an AI system that bears
+           the name or trademark of a natural or legal person established in
+           a third country;
+
+
+     (7)   ‘distributor’ means a natural or legal person in the supply chain,
+           other than the provider or the importer, that makes an AI system
+           available on the Union market;
+
+
+     (8)   ‘operator’ means a provider, product manufacturer, deployer,
+           authorised representative, importer or distributor;
+
+
+     (9)   ‘placing on the market’ means the first making available of an AI
+           system or a general-purpose AI model on the Union market;
+
+
+     (10) ‘making available on the market’ means the supply of an AI
+          system or a general-purpose AI model for distribution or use
+          on the Union market in the course of a commercial activity,
+          whether in return for payment or free of charge;
+
+
+     (11) ‘putting into service’ means the supply of an AI system for first
+          use directly to the deployer or for own use in the Union for its
+          intended purpose;
+                                                              02024R1689 — EN — 27.07.2026 — 001.001 — 6
+
+▼B
+      (12) ‘intended purpose’ means the use for which an AI system is
+           intended by the provider, including the specific context and
+           conditions of use, as specified in the information supplied by
+           the provider in the instructions for use, promotional or sales
+           materials and statements, as well as in the technical
+           documentation;
+
+      (13) ‘reasonably foreseeable misuse’ means the use of an AI system in
+           a way that is not in accordance with its intended purpose, but
+           which may result from reasonably foreseeable human behaviour
+           or interaction with other systems, including other AI systems;
+
+▼M1
+      (14) ‘safety component’ means a component of a product or of an AI
+           system which fulfils a safety function for that product or AI
+           system, or the failure or malfunctioning of which endangers the
+           health and safety of persons or property; for the purposes of this
+           definition, a component fulfils a safety function where its
+           intended purpose is to prevent or mitigate risks to health and
+           safety of persons or property;
+
+      (14a) ‘micro, small and medium-sized enterprise’ or ‘SME’ means
+            a micro, small or medium-sized enterprise as defined in
+            Article 2 of the Annex to Recommendation 2003/361/EC;
+
+      (14b) ‘small mid-cap enterprise’ or ‘SMC’ means a small
+            mid-cap enterprise as defined in point (2) of the Annex to
+            Recommendation (EU) 2025/1099;
+
+▼B
+      (15) ‘instructions for use’ means the information provided by the
+           provider to inform the deployer of, in particular, an AI
+           system’s intended purpose and proper use;
+
+      (16) ‘recall of an AI system’ means any measure aiming to achieve
+           the return to the provider or taking out of service or disabling the
+           use of an AI system made available to deployers;
+
+      (17) ‘withdrawal of an AI system’ means any measure aiming to
+           prevent an AI system in the supply chain being made available
+           on the market;
+
+      (18) ‘performance of an AI system’ means the ability of an AI system
+           to achieve its intended purpose;
+
+      (19) ‘notifying authority’ means the national authority responsible for
+           setting up and carrying out the necessary procedures for the
+           assessment, designation and notification of conformity assessment
+           bodies and for their monitoring;

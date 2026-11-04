@@ -1,0 +1,113 @@
+                  3.2.7.   The supply of electricity use case in critical infrastructure
+
+(203) According to the approach presented in section 3.2.1.ii above, ‘an AI system intended to be used in
+      the management and operation of supply of electricity’ refers to an AI system intended to be used
+      in an asset, a facility, equipment, a network, or an system or a part of an asset, a facility, equipment,
+      a network or a system which is necessary for the provision of the essential services established in
+      point (a) of Article 2(1) CER Delegated Regulation. This includes29:
+
+            -    the supply of electricity (electricity undertakings);
+
+            -    the operation, maintenance and development of an electricity distribution system
+                 (distribution system operators);
+
+            -    the operation, maintenance and development of an electricity transmission system
+                 (transmission system operators);
+
+            -    the generation of electricity (producers);
+
+            -    the nominated electricity market operator service (nominated electricity market operators);
+
+            -    the demand response (electricity market participants);
+
+            -    the aggregation of electricity (electricity market participants);
+
+
+
+   29
+        The supply of electricity use case does not include the hydrogen sector as defined in Annex III point 1c of the
+            CER Directive (operators of hydrogen production, storage and transmission).
+
+                                                                                                                    46
+         -    the energy storage (electricity market participants).
+
+(204) An AI system used in the management and operation of supply of electricity should be considered
+      high risk if intended to be used by an electricity entity (i.e.: electricity supply undertaking,
+      distribution or transmission operator, electricity producer, nominated electricity market operator or
+      electricity market participant) that has been identified by a Member State as a critical entity under
+      the CER Directive.
+
+(205) A specific consideration is needed in relation to AI systems used as safety components in nuclear
+      energy production. Recital 5 CER Directive delineates the scope within the energy sector,
+      acknowledging that electricity generation may include electricity transmission parts of nuclear
+      power plants, but excludes nuclear-specific elements covered by treaties and Union law, including
+      relevant Union legal acts concerning nuclear power.
+
+(206) For this reason, AI systems used as safety components in nuclear energy production do not fall
+      within the high use case listed in point (2) of Annex III. AI systems deployed within nuclear power
+      plants are not covered by the critical infrastructure use case, while AI systems used as safety
+      components in electricity components of nuclear power plants could be included.
+
+          a) Practical examples of an AI system falling within the high-risk use case of the supply
+             of electricity
+
+  An AI system used in a surveillance and protection for physical perimeter protection such as
+  camera systems, radar systems and drone control systems used to directly protect the physical
+  integrity of the infrastructure.
+
+  An AI system used for the detection of anomalies in data patterns when operating
+  electricity grids for the purpose of monitoring and supporting decision-making in relation to
+  critical functions, such as power load distribution, grid stability, or shutdown procedures.
+
+
+          b) Practical examples of AI systems falling outside the high-risk use case of the supply
+             of electricity
+
+  -    An AI system used for electricity grid optimization by forecasting the energy demand. The
+       core safety functions are handled separately, so that the system cannot be considered to have a
+       direct safety function.
+
+  -    An AI system used in a cybersecurity monitoring for energy grid networks. Such a system
+       is intended to be used solely for cybersecurity purposes. It continuously monitors network traffic,
+       detects anomalous patterns, and identifies potential cyber threats across electricity grid
+       communication networks. It analyses data flows, identifies suspicious activities, and alerts
+       security personnel to potential intrusions or malware. It operates independently from operational
+       technology systems that directly control physical grid operations.
+
+  -    An AI system used as a quality assurance of meter installation. Such an AI system analyses
+       the images of installed electricity meters. The output of the system is provided to the human
+
+
+
+                                                                                                        47
+         worker with recommendations regarding errors and improvements. It does not have a direct
+         safety function.
+
+  -      An AI system used as an incident detection for e.g. precautionary outage prevention. The
+         output is the detection of anomalies and the prediction of impending outages or incidents. In
+         order to prevent them from happening the AI system is sending the grid control centre a warning
+         of the detected or foreseen incident as part of a range of safety measures. The grid control centre
+         operator can then take precautionary measures like switching loads to prevent an outage. Such
+         AI system is not considered as a high risk due to lack of a direct safety function as it is only one
+         measure that is precautionary in nature and not essential for the safe operation of the system. It
+         does not act on itself but rather only enriches the decision-making options in the grid control
+         centre. Even if the system wrongly indicates impending outages or incidents, no outage is created.
+
+  -      An AI system used for detection and analysing anomalies in data provided from operating
+         the power grid, where the output e.g. is the basis for future improvements in operating the
+         power grid. An AI system that is used for detection of anomalies in data patterns when operating
+         electricity grids so that they are checked by the human operator exists to enrich the decision-
+         making process. It lacks a direct safety function.
+
+  -      An AI system used for providing recommendations as an assistant, predicting energy
+         consumption at transmission, regional or local level. Such an AI system lacks a direct safety
+         function.
+
+  -      An AI-system, supervised by a human worker, makes forecasts for grid imbalances, e.g. 15-
+         minutes interval. That forecasts support operational planning, but also directly influence market
+         players. A malfunctioning in the AI-system could mislead both external and internal actors,
+         potentially causing suboptimal dispatch or hedging strategies. This can affect grid stability,
+         which can lead to malfunctioning in electricity supply. This will not be classified as a high-risk
+         system due to lack of a direct link between the system and potential harm.
+
+
