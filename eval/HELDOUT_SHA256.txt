@@ -4,3 +4,13 @@
 set A (headline): 29 questions (17 single-hop, 6 multi-hop, 6 unanswerable) + 10 paraphrases
 9ae555c228aafa9b9d033d7f8062c84e2d4c579d55332322429af5877c33acba  heldout_v1.jsonl
 ee7af4f01e46f8a6547b097ece0f41953340877b0fd9d643d9168fef899ed6d2  paraphrases_v1.jsonl
+set B (robustness, reworded; same gold as set A): 29 questions, frozen before its run (2026-11-04)
+dc24ee89f121afaeffcab8ab072d4322163aac4ff990ff5d535a2bea8af4feb6  reworded_v2.jsonl
+
+# Public copies in eval/heldout/ (published after the set-A run). They keep qid, question, type, era, gold answer,
+# gold IDs, accepted alternative IDs, stale answer, paraphrase/reworded links and the verbatim evidence quotes;
+# they omit the drafting notes and the search notes of unanswerable items. Questions and labels are identical to
+# the frozen files above.
+fea4ecdc782c495a5e04ebe41ce894bb95a08386aba8b1c554cc376123b75ab3  eval/heldout/heldout_v1.jsonl
+4ed62a35877f2b42d723db5ee555f9e3e2ce64d050588de4610fb1b4441ecc9e  eval/heldout/paraphrases_v1.jsonl
+bed6cae48d681a9b7c4963f834cc1dedf649cd9770e8f87d2bfbfc038048428a  eval/heldout/reworded_v2.jsonl

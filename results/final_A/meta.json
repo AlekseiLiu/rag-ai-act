@@ -1,0 +1,44 @@
+{
+ "chat_deployment": "gpt-4.1-mini",
+ "embed_deployment": "text-embedding-3-small",
+ "api_version": "2024-10-21",
+ "packages": {
+  "faiss-cpu": "1.15.1",
+  "langchain-core": "1.7.4",
+  "langchain-openai": "1.7.3",
+  "langchain-text-splitters": "1.1.3",
+  "langgraph": "1.2.19",
+  "langgraph-checkpoint": "4.3.1",
+  "langgraph-prebuilt": "1.1.1",
+  "numpy": "2.5.4",
+  "openai": "3.45.0",
+  "python-dotenv": "1.2.4",
+  "rank-bm25": "0.2.2",
+  "tiktoken": "0.14.0"
+ },
+ "python": "3.14.8",
+ "pdftotext": "pdftotext version 22.02.0",
+ "git_commit": "27b9df55b25b1b4c1fe7ffbf7fa7d9b619d162f7",
+ "git_dirty": false,
+ "started_at": "2026-11-04T16:53:29+00:00",
+ "budget": {
+  "spent_eur": 0.15370049919999998,
+  "index_eur": 0.0,
+  "answers_eur": 0.15370049919999998,
+  "warned": false,
+  "stopped": false
+ },
+ "missing_answers": 0,
+ "stopped_at": null,
+ "systems": [
+  "S0",
+  "S1",
+  "S2",
+  "S3"
+ ],
+ "questions_file": "heldout_v1.jsonl",
+ "questions_sha256": "9ae555c228aafa9b9d033d7f8062c84e2d4c579d55332322429af5877c33acba",
+ "runtime_s": 379.8,
+ "paraphrases_file": "paraphrases_v1.jsonl",
+ "paraphrases_sha256": "ee7af4f01e46f8a6547b097ece0f41953340877b0fd9d643d9168fef899ed6d2"
+}

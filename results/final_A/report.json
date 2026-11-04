@@ -1,0 +1,303 @@
+{
+ "verdicts_source": "verdicts_1",
+ "settled": false,
+ "summary": {
+  "S0": {
+   "H1": {
+    "n": 1,
+    "of": 23,
+    "pct": 4.3
+   },
+   "H2": {
+    "n": 1,
+    "of": 17,
+    "pct": 5.9
+   },
+   "H3": {
+    "n": 6,
+    "of": 6,
+    "pct": 100.0
+   },
+   "false_declines": {
+    "n": 2,
+    "of": 23,
+    "pct": 8.7
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 0,
+     "of": 6,
+     "pct": 0.0
+    },
+    "2026": {
+     "n": 1,
+     "of": 17,
+     "pct": 5.9
+    }
+   },
+   "recall_at_5": null,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.19047619047619047,
+    "n_citing_nothing": 2
+   },
+   "multi_hop": {
+    "n": 0,
+    "of": 6,
+    "pct": 0.0
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.009956976000000001
+  },
+  "S1": {
+   "H1": {
+    "n": 16,
+    "of": 23,
+    "pct": 69.6
+   },
+   "H2": {
+    "n": 12,
+    "of": 17,
+    "pct": 70.6
+   },
+   "H3": {
+    "n": 4,
+    "of": 6,
+    "pct": 66.7
+   },
+   "false_declines": {
+    "n": 1,
+    "of": 23,
+    "pct": 4.3
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 4,
+     "of": 6,
+     "pct": 66.7
+    },
+    "2026": {
+     "n": 12,
+     "of": 17,
+     "pct": 70.6
+    }
+   },
+   "recall_at_5": 0.8043478260869565,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.6590909090909091,
+    "n_citing_nothing": 1
+   },
+   "multi_hop": {
+    "n": 1,
+    "of": 6,
+    "pct": 16.7
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.020906080000000004
+  },
+  "S2": {
+   "H1": {
+    "n": 18,
+    "of": 23,
+    "pct": 78.3
+   },
+   "H2": {
+    "n": 13,
+    "of": 17,
+    "pct": 76.5
+   },
+   "H3": {
+    "n": 6,
+    "of": 6,
+    "pct": 100.0
+   },
+   "false_declines": {
+    "n": 1,
+    "of": 23,
+    "pct": 4.3
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 5,
+     "of": 6,
+     "pct": 83.3
+    },
+    "2026": {
+     "n": 13,
+     "of": 17,
+     "pct": 76.5
+    }
+   },
+   "recall_at_5": 0.8260869565217391,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.6212121212121212,
+    "n_citing_nothing": 1
+   },
+   "multi_hop": {
+    "n": 2,
+    "of": 6,
+    "pct": 33.3
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.0169346424
+  },
+  "S3": {
+   "H1": {
+    "n": 14,
+    "of": 23,
+    "pct": 60.9
+   },
+   "H2": {
+    "n": 11,
+    "of": 17,
+    "pct": 64.7
+   },
+   "H3": {
+    "n": 3,
+    "of": 6,
+    "pct": 50.0
+   },
+   "false_declines": {
+    "n": 1,
+    "of": 23,
+    "pct": 4.3
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 3,
+     "of": 6,
+     "pct": 50.0
+    },
+    "2026": {
+     "n": 11,
+     "of": 17,
+     "pct": 64.7
+    }
+   },
+   "recall_at_5": null,
+   "evidence_recall": 0.6739130434782609,
+   "citation_precision": {
+    "mean": 0.5042207792207792,
+    "n_citing_nothing": 1
+   },
+   "multi_hop": {
+    "n": 1,
+    "of": 6,
+    "pct": 16.7
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.06619576640000001
+  }
+ },
+ "band": "useless",
+ "agreement": {
+  "n": 132,
+  "of": 132,
+  "pct": 100.0,
+  "disagreements": []
+ },
+ "answer_only": {
+  "S0": {
+   "all": {
+    "n": 5,
+    "of": 23,
+    "pct": 21.7
+   },
+   "2024": {
+    "n": 0,
+    "of": 6,
+    "pct": 0.0
+   },
+   "2026": {
+    "n": 5,
+    "of": 17,
+    "pct": 29.4
+   }
+  },
+  "S1": {
+   "all": {
+    "n": 16,
+    "of": 23,
+    "pct": 69.6
+   },
+   "2024": {
+    "n": 4,
+    "of": 6,
+    "pct": 66.7
+   },
+   "2026": {
+    "n": 12,
+    "of": 17,
+    "pct": 70.6
+   }
+  },
+  "S2": {
+   "all": {
+    "n": 20,
+    "of": 23,
+    "pct": 87.0
+   },
+   "2024": {
+    "n": 5,
+    "of": 6,
+    "pct": 83.3
+   },
+   "2026": {
+    "n": 15,
+    "of": 17,
+    "pct": 88.2
+   }
+  },
+  "S3": {
+   "all": {
+    "n": 18,
+    "of": 23,
+    "pct": 78.3
+   },
+   "2024": {
+    "n": 3,
+    "of": 6,
+    "pct": 50.0
+   },
+   "2026": {
+    "n": 15,
+    "of": 17,
+    "pct": 88.2
+   }
+  }
+ },
+ "paraphrase_stability": {
+  "S0": {
+   "orig": 1,
+   "para": 2,
+   "within_2": true,
+   "n_items": 10
+  },
+  "S1": {
+   "orig": 8,
+   "para": 8,
+   "within_2": true,
+   "n_items": 10
+  },
+  "S2": {
+   "orig": 8,
+   "para": 7,
+   "within_2": true,
+   "n_items": 10
+  },
+  "S3": {
+   "orig": 7,
+   "para": 7,
+   "within_2": true,
+   "n_items": 10
+  }
+ },
+ "run_stopped_at_budget": false,
+ "missing_answers": 0
+}

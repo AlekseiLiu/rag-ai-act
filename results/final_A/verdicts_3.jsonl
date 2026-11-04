@@ -1,0 +1,132 @@
+{"blind_id": "B001", "correct": true, "reason": "It agrees that the warning system is not a high-risk safety component."}
+{"blind_id": "B002", "correct": true, "reason": "It agrees that human review alone does not remove high-risk status."}
+{"blind_id": "B003", "correct": true, "reason": "It gives the gold answer's intended-purpose test."}
+{"blind_id": "B004", "correct": true, "reason": "It correctly requires critical-entity designation."}
+{"blind_id": "B005", "correct": false, "reason": "It declines to answer whether backup protection matters."}
+{"blind_id": "B006", "correct": true, "reason": "It correctly states the Annex III point 2 exemption."}
+{"blind_id": "B007", "correct": true, "reason": "It gives the same safety-function definition."}
+{"blind_id": "B008", "correct": true, "reason": "It correctly distinguishes nuclear production from electricity components."}
+{"blind_id": "B009", "correct": true, "reason": "It correctly identifies national registration."}
+{"blind_id": "B010", "correct": true, "reason": "It gives the correct date, 2 December 2027."}
+{"blind_id": "B011", "correct": false, "reason": "It is marked as declined."}
+{"blind_id": "B012", "correct": true, "reason": "It correctly places this example inside the high-risk electricity use case."}
+{"blind_id": "B013", "correct": true, "reason": "It correctly says no fundamental rights impact assessment is required."}
+{"blind_id": "B014", "correct": true, "reason": "It identifies Section B and the applicable provisions."}
+{"blind_id": "B015", "correct": true, "reason": "It correctly states the Annex III point 2 exemption."}
+{"blind_id": "B016", "correct": true, "reason": "It gives the correct date, 2 December 2027."}
+{"blind_id": "B017", "correct": false, "reason": "It omits the requested application date."}
+{"blind_id": "B018", "correct": false, "reason": "It gives an incorrect application period instead of 2 December 2027."}
+{"blind_id": "B019", "correct": true, "reason": "It gives the six-month minimum and legal exception."}
+{"blind_id": "B020", "correct": true, "reason": "It correctly says the assessment is not required."}
+{"blind_id": "B021", "correct": false, "reason": "It places the Machinery Regulation in the wrong section and gives the wrong provisions."}
+{"blind_id": "B022", "correct": true, "reason": "It correctly excludes standalone cybersecurity monitoring."}
+{"blind_id": "B023", "correct": false, "reason": "It wrongly requires a notified body."}
+{"blind_id": "B024", "correct": true, "reason": "It identifies the system as high-risk and says no notified body is needed."}
+{"blind_id": "B025", "correct": true, "reason": "It correctly says human review alone cannot remove high-risk status."}
+{"blind_id": "B026", "correct": true, "reason": "It gives the same safety-function definition."}
+{"blind_id": "B027", "correct": false, "reason": "It says EU-database registration instead of national registration."}
+{"blind_id": "B028", "correct": true, "reason": "It correctly says human review alone is insufficient."}
+{"blind_id": "B029", "correct": false, "reason": "It wrongly includes nuclear energy production in Annex III point 2."}
+{"blind_id": "B030", "correct": false, "reason": "It gives Section A and the wrong applicable provisions."}
+{"blind_id": "B031", "correct": true, "reason": "It gives both high-risk status and the correct date."}
+{"blind_id": "B032", "correct": false, "reason": "It gives ten days instead of two days."}
+{"blind_id": "B033", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B034", "correct": false, "reason": "It gives fifteen days instead of two days."}
+{"blind_id": "B035", "correct": true, "reason": "It correctly requires critical-entity designation."}
+{"blind_id": "B036", "correct": false, "reason": "It wrongly calls the simulation tool an AI system."}
+{"blind_id": "B037", "correct": true, "reason": "It correctly makes classification depend on critical-entity designation."}
+{"blind_id": "B038", "correct": true, "reason": "It gives the correct date, 2 December 2027."}
+{"blind_id": "B039", "correct": true, "reason": "It correctly requires critical-entity designation."}
+{"blind_id": "B040", "correct": true, "reason": "It gives the gold answer's intended-purpose test."}
+{"blind_id": "B041", "correct": false, "reason": "It wrongly limits the definition to detecting hazardous situations."}
+{"blind_id": "B042", "correct": false, "reason": "It gives fifteen days instead of two days."}
+{"blind_id": "B043", "correct": false, "reason": "It gives fifteen days instead of two days."}
+{"blind_id": "B044", "correct": true, "reason": "It correctly states the assessment exemption."}
+{"blind_id": "B045", "correct": true, "reason": "It correctly excludes efficiency-only optimisation."}
+{"blind_id": "B046", "correct": true, "reason": "It correctly excludes nuclear production while noting the electricity exception."}
+{"blind_id": "B047", "correct": true, "reason": "It correctly says the forecast system is not high-risk."}
+{"blind_id": "B048", "correct": true, "reason": "It correctly says backup protection matters to the assessment."}
+{"blind_id": "B049", "correct": true, "reason": "It gives the six-month minimum and legal exception."}
+{"blind_id": "B050", "correct": false, "reason": "It omits the requested date of 2 December 2027."}
+{"blind_id": "B051", "correct": true, "reason": "It correctly excludes the physics-based simulation tool."}
+{"blind_id": "B052", "correct": false, "reason": "It omits the required assessment documentation and registration."}
+{"blind_id": "B053", "correct": true, "reason": "It includes both assessment documentation and EU-database registration."}
+{"blind_id": "B054", "correct": false, "reason": "It wrongly requires a notified body."}
+{"blind_id": "B055", "correct": false, "reason": "It wrongly requires a fundamental rights impact assessment."}
+{"blind_id": "B056", "correct": false, "reason": "It wrongly classifies the warning system as high-risk."}
+{"blind_id": "B057", "correct": true, "reason": "It correctly excludes the physics-based simulation tool."}
+{"blind_id": "B058", "correct": true, "reason": "It correctly says the warning tool is not a high-risk safety component."}
+{"blind_id": "B059", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B060", "correct": true, "reason": "It correctly says the product does not satisfy Article 6(1)(b)."}
+{"blind_id": "B061", "correct": true, "reason": "It correctly places the simulation tool outside the AI-system definition."}
+{"blind_id": "B062", "correct": false, "reason": "It gives fifteen days as the deadline for this incident instead of two."}
+{"blind_id": "B063", "correct": true, "reason": "It correctly says the warning system is not high-risk."}
+{"blind_id": "B064", "correct": true, "reason": "It gives the six-month minimum and legal exception."}
+{"blind_id": "B065", "correct": true, "reason": "It correctly excludes efficiency-only optimisation."}
+{"blind_id": "B066", "correct": true, "reason": "It gives the correct date, 2 December 2027."}
+{"blind_id": "B067", "correct": false, "reason": "It omits the required assessment documentation and registration."}
+{"blind_id": "B068", "correct": false, "reason": "It is marked as declined."}
+{"blind_id": "B069", "correct": false, "reason": "It wrongly treats the warning tool as high-risk."}
+{"blind_id": "B070", "correct": false, "reason": "It wrongly requires a notified body."}
+{"blind_id": "B071", "correct": true, "reason": "It correctly excludes the physics-based simulation tool."}
+{"blind_id": "B072", "correct": true, "reason": "It gives the same safety-function definition."}
+{"blind_id": "B073", "correct": true, "reason": "It clarifies that support measures are required but no literacy level is guaranteed."}
+{"blind_id": "B074", "correct": false, "reason": "It wrongly requires a notified body."}
+{"blind_id": "B075", "correct": true, "reason": "It correctly says the forecast system is not high-risk."}
+{"blind_id": "B076", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B077", "correct": false, "reason": "It is marked as declined."}
+{"blind_id": "B078", "correct": true, "reason": "It gives the 2 December 2027 cutoff and public-authority exception."}
+{"blind_id": "B079", "correct": true, "reason": "It correctly says the forecast system is not high-risk."}
+{"blind_id": "B080", "correct": false, "reason": "It wrongly includes nuclear production in Annex III point 2."}
+{"blind_id": "B081", "correct": false, "reason": "It omits the requested date and substitutes a relative period."}
+{"blind_id": "B082", "correct": true, "reason": "It distinguishes support measures from guaranteeing a literacy level."}
+{"blind_id": "B083", "correct": false, "reason": "It gives fifteen days instead of two days."}
+{"blind_id": "B084", "correct": false, "reason": "It wrongly says a notified body may be required."}
+{"blind_id": "B085", "correct": true, "reason": "It identifies high-risk status and correctly excludes a notified body."}
+{"blind_id": "B086", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B087", "correct": true, "reason": "It gives the gold answer's intended-purpose test."}
+{"blind_id": "B088", "correct": true, "reason": "It says human review alone is insufficient and requires other conditions."}
+{"blind_id": "B089", "correct": true, "reason": "It correctly says the warning system is not high-risk."}
+{"blind_id": "B090", "correct": true, "reason": "It correctly requires critical-entity designation."}
+{"blind_id": "B091", "correct": true, "reason": "It correctly requires critical-entity designation."}
+{"blind_id": "B092", "correct": true, "reason": "It correctly says the forecast system is not high-risk."}
+{"blind_id": "B093", "correct": true, "reason": "It correctly excludes the physics-based simulation tool."}
+{"blind_id": "B094", "correct": false, "reason": "It is marked as declined."}
+{"blind_id": "B095", "correct": true, "reason": "It correctly says the product does not satisfy Article 6(1)(b)."}
+{"blind_id": "B096", "correct": false, "reason": "It is marked as declined."}
+{"blind_id": "B097", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B098", "correct": true, "reason": "It correctly excludes nuclear energy production."}
+{"blind_id": "B099", "correct": false, "reason": "It wrongly requires a fundamental rights impact assessment."}
+{"blind_id": "B100", "correct": true, "reason": "It correctly excludes nuclear production while noting the electricity exception."}
+{"blind_id": "B101", "correct": false, "reason": "It omits the requested list of applicable AI Act provisions."}
+{"blind_id": "B102", "correct": true, "reason": "It correctly excludes standalone cybersecurity monitoring."}
+{"blind_id": "B103", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B104", "correct": false, "reason": "It gives two years instead of the six-month minimum."}
+{"blind_id": "B105", "correct": true, "reason": "It gives the 2 December 2027 cutoff and significant-change rule."}
+{"blind_id": "B106", "correct": true, "reason": "It correctly excludes the physics-based simulation tool."}
+{"blind_id": "B107", "correct": true, "reason": "It correctly says the warning tool is not high-risk."}
+{"blind_id": "B108", "correct": true, "reason": "It correctly states the assessment exemption."}
+{"blind_id": "B109", "correct": true, "reason": "It correctly excludes nuclear production while noting the electricity exception."}
+{"blind_id": "B110", "correct": false, "reason": "It wrongly says obligations apply and gives the wrong cutoff date."}
+{"blind_id": "B111", "correct": true, "reason": "It includes assessment documentation and EU-database registration."}
+{"blind_id": "B112", "correct": true, "reason": "It correctly says the warning tool is not high-risk."}
+{"blind_id": "B113", "correct": false, "reason": "It wrongly classifies standalone cybersecurity monitoring as high-risk."}
+{"blind_id": "B114", "correct": true, "reason": "It correctly says backup protection matters to the assessment."}
+{"blind_id": "B115", "correct": true, "reason": "It correctly excludes the physics-based simulation tool."}
+{"blind_id": "B116", "correct": true, "reason": "It correctly excludes nuclear production while noting the electricity exception."}
+{"blind_id": "B117", "correct": true, "reason": "It correctly says the product does not satisfy Article 6(1)(b)."}
+{"blind_id": "B118", "correct": false, "reason": "It is marked as declined."}
+{"blind_id": "B119", "correct": true, "reason": "It correctly says backup protection matters to the assessment."}
+{"blind_id": "B120", "correct": true, "reason": "It correctly requires critical-entity designation."}
+{"blind_id": "B121", "correct": true, "reason": "It correctly says the product does not satisfy Article 6(1)(b)."}
+{"blind_id": "B122", "correct": true, "reason": "It correctly excludes standalone cybersecurity monitoring."}
+{"blind_id": "B123", "correct": true, "reason": "It distinguishes support measures from guaranteeing a literacy level."}
+{"blind_id": "B124", "correct": false, "reason": "It omits the requested application date."}
+{"blind_id": "B125", "correct": true, "reason": "It correctly identifies the example as high-risk."}
+{"blind_id": "B126", "correct": true, "reason": "It correctly excludes efficiency-only optimisation."}
+{"blind_id": "B127", "correct": false, "reason": "It gives a broader test that omits the required prevent-or-mitigate purpose."}
+{"blind_id": "B128", "correct": false, "reason": "It substitutes public-utility status for critical-entity designation."}
+{"blind_id": "B129", "correct": true, "reason": "It gives the correct date, 2 December 2027."}
+{"blind_id": "B130", "correct": true, "reason": "It gives the correct date, 2 December 2027."}
+{"blind_id": "B131", "correct": false, "reason": "Its exception allows optimisation-only systems to qualify without a direct protective function."}
+{"blind_id": "B132", "correct": false, "reason": "It does not give the requested cutoff date of 2 December 2027."}

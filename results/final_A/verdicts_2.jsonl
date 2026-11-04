@@ -1,0 +1,132 @@
+{"blind_id": "B001", "correct": true, "reason": "Says it is not high-risk because it lacks a direct safety function and only enriches decisions, matching the gold answer."}
+{"blind_id": "B002", "correct": true, "reason": "Says no, and that human involvement only helps show an Article 6(3) condition is met, matching the gold answer."}
+{"blind_id": "B003", "correct": true, "reason": "Gives the same definition: the intended purpose is to prevent or mitigate risks to health and safety of persons or property."}
+{"blind_id": "B004", "correct": true, "reason": "Says the operator's status matters and it must be a critical entity under the CER Directive."}
+{"blind_id": "B005", "correct": false, "reason": "Declined to answer."}
+{"blind_id": "B006", "correct": true, "reason": "Says no FRIA is required because Article 27(1) exempts Annex III point 2."}
+{"blind_id": "B007", "correct": true, "reason": "Gives the same definition based on preventing or mitigating risks to health and safety of persons or property."}
+{"blind_id": "B008", "correct": true, "reason": "Says nuclear production is not covered but electricity components of nuclear plants could be, matching the gold answer."}
+{"blind_id": "B009", "correct": true, "reason": "Says registration is at national level."}
+{"blind_id": "B010", "correct": true, "reason": "Gives the correct date of 2 December 2027."}
+{"blind_id": "B011", "correct": false, "reason": "Declined to answer."}
+{"blind_id": "B012", "correct": true, "reason": "Says yes, it is a practical example within the high-risk electricity use case."}
+{"blind_id": "B013", "correct": true, "reason": "Says no FRIA is required under the Article 27(1) exemption; the added caveat does not contradict the gold answer."}
+{"blind_id": "B014", "correct": true, "reason": "Gives Section B and the correct list of applicable articles."}
+{"blind_id": "B015", "correct": true, "reason": "Says no, because Article 27(1) exempts Annex III point 2."}
+{"blind_id": "B016", "correct": true, "reason": "Gives the correct date of 2 December 2027."}
+{"blind_id": "B017", "correct": false, "reason": "Leaves out the 2 December 2027 date the question asks for."}
+{"blind_id": "B018", "correct": false, "reason": "Gives the wrong application date (18 months after entry into force) instead of 2 December 2027."}
+{"blind_id": "B019", "correct": true, "reason": "Gives at least six months, appropriate to the intended purpose, unless the law provides otherwise."}
+{"blind_id": "B020", "correct": true, "reason": "Says no, because Article 27(1) exempts Annex III point 2."}
+{"blind_id": "B021", "correct": false, "reason": "Says Section A, but the gold answer says Section B, and it gets the applicable provisions wrong."}
+{"blind_id": "B022", "correct": true, "reason": "Says it is not high-risk because it is a cybersecurity-only system independent of the operational technology."}
+{"blind_id": "B023", "correct": false, "reason": "Says a notified body is required, but the gold answer says internal control applies with no notified body."}
+{"blind_id": "B024", "correct": true, "reason": "Says it is high-risk as a safety component (with a hedge) and correctly says no notified body is needed under Annex VI internal control."}
+{"blind_id": "B025", "correct": true, "reason": "Says no; requiring human review does not remove high-risk status."}
+{"blind_id": "B026", "correct": true, "reason": "Gives the same definition based on preventing or mitigating risks."}
+{"blind_id": "B027", "correct": false, "reason": "Says the EU database, but the gold answer says national-level registration."}
+{"blind_id": "B028", "correct": true, "reason": "Says no; human review alone is not enough for exemption."}
+{"blind_id": "B029", "correct": false, "reason": "Says nuclear safety components are covered, contradicting the gold answer."}
+{"blind_id": "B030", "correct": false, "reason": "Says Section A, with the wrong applicable provisions."}
+{"blind_id": "B031", "correct": true, "reason": "Says it is high-risk and gives 2 December 2027."}
+{"blind_id": "B032", "correct": false, "reason": "Gives 10 days instead of two days."}
+{"blind_id": "B033", "correct": true, "reason": "Says yes, it is listed within the high-risk supply-of-electricity use case."}
+{"blind_id": "B034", "correct": false, "reason": "Gives 15 days instead of two days."}
+{"blind_id": "B035", "correct": true, "reason": "Says the operator's critical-entity status matters."}
+{"blind_id": "B036", "correct": false, "reason": "Says it is an AI system, contradicting the gold answer."}
+{"blind_id": "B037", "correct": true, "reason": "Says it depends on the critical-entity designation."}
+{"blind_id": "B038", "correct": true, "reason": "Gives 2 December 2027."}
+{"blind_id": "B039", "correct": true, "reason": "Says high-risk only if the DSO is a designated critical entity."}
+{"blind_id": "B040", "correct": true, "reason": "Gives the same core definition; the extra detail does not contradict it."}
+{"blind_id": "B041", "correct": false, "reason": "Gives a different definition (detecting hazards, bringing the system to a safe state) instead of the gold wording."}
+{"blind_id": "B042", "correct": false, "reason": "Gives 15 days instead of two days."}
+{"blind_id": "B043", "correct": false, "reason": "Gives 15 days instead of two days."}
+{"blind_id": "B044", "correct": true, "reason": "Says no, because Article 27(1) exempts Annex III point 2."}
+{"blind_id": "B045", "correct": true, "reason": "Says optimisation-only systems do not count as safety components."}
+{"blind_id": "B046", "correct": true, "reason": "Says nuclear production is not covered, with the electricity-components nuance."}
+{"blind_id": "B047", "correct": true, "reason": "Says it is not high-risk because there is no direct link to harm."}
+{"blind_id": "B048", "correct": true, "reason": "Says yes, a backup system should be taken into account."}
+{"blind_id": "B049", "correct": true, "reason": "Gives at least six months, appropriate to the intended purpose, unless the law provides otherwise."}
+{"blind_id": "B050", "correct": false, "reason": "Gives a wrong date instead of 2 December 2027."}
+{"blind_id": "B051", "correct": true, "reason": "Says no, it falls outside the AI system definition."}
+{"blind_id": "B052", "correct": false, "reason": "Cites transparency obligations and leaves out the documentation and registration duties."}
+{"blind_id": "B053", "correct": true, "reason": "Says the provider must document the assessment and register in the EU database."}
+{"blind_id": "B054", "correct": false, "reason": "Says a notified body is required, contradicting the gold answer."}
+{"blind_id": "B055", "correct": false, "reason": "Says a FRIA is required, contradicting the Article 27(1) exemption."}
+{"blind_id": "B056", "correct": false, "reason": "Says it is high-risk, contradicting the gold answer."}
+{"blind_id": "B057", "correct": true, "reason": "Says no, it is not an AI system."}
+{"blind_id": "B058", "correct": true, "reason": "Says it is not a high-risk safety component because it has no direct safety function."}
+{"blind_id": "B059", "correct": true, "reason": "Says yes, it is listed within the high-risk use case."}
+{"blind_id": "B060", "correct": true, "reason": "Says no, the Article 6(1)(b) condition is not met."}
+{"blind_id": "B061", "correct": true, "reason": "Says it falls outside the AI system definition."}
+{"blind_id": "B062", "correct": false, "reason": "Gives 15 days as the main deadline; the two-day limit appears only as a conditional alternative."}
+{"blind_id": "B063", "correct": true, "reason": "Says no, because it lacks a direct safety function."}
+{"blind_id": "B064", "correct": true, "reason": "Gives at least six months, appropriate to the intended purpose, unless the law provides otherwise."}
+{"blind_id": "B065", "correct": true, "reason": "Says optimisation-only systems are not safety components."}
+{"blind_id": "B066", "correct": true, "reason": "Gives 2 December 2027."}
+{"blind_id": "B067", "correct": false, "reason": "Leaves out the documentation and EU database registration duties."}
+{"blind_id": "B068", "correct": false, "reason": "Declined, and gives 15 days instead of two days."}
+{"blind_id": "B069", "correct": false, "reason": "Says it would be high-risk, contradicting the gold answer."}
+{"blind_id": "B070", "correct": false, "reason": "Says a notified body is required, contradicting the gold answer."}
+{"blind_id": "B071", "correct": true, "reason": "Says it falls outside the AI system definition."}
+{"blind_id": "B072", "correct": true, "reason": "Gives the same definition based on preventing or mitigating risks."}
+{"blind_id": "B073", "correct": false, "reason": "Opens with 'Yes' to ensuring a sufficient level, contradicting the gold answer's 'not in those terms'."}
+{"blind_id": "B074", "correct": false, "reason": "Says a notified body is required, contradicting the gold answer."}
+{"blind_id": "B075", "correct": true, "reason": "Says it is not classified as high-risk."}
+{"blind_id": "B076", "correct": true, "reason": "Says yes, it is a practical example within the high-risk electricity use case."}
+{"blind_id": "B077", "correct": false, "reason": "Declined to answer."}
+{"blind_id": "B078", "correct": true, "reason": "Says obligations apply only with significant changes from 2 December 2027, plus the 2 August 2030 rule for public authorities."}
+{"blind_id": "B079", "correct": true, "reason": "Says it is not high-risk because there is no direct link to harm."}
+{"blind_id": "B080", "correct": false, "reason": "Says nuclear safety components are covered, contradicting the gold answer."}
+{"blind_id": "B081", "correct": false, "reason": "Gives 12 months after the amendment instead of 2 December 2027."}
+{"blind_id": "B082", "correct": true, "reason": "Describes support measures with no guaranteed level of literacy, matching the gold answer."}
+{"blind_id": "B083", "correct": false, "reason": "Gives 15 days instead of two days."}
+{"blind_id": "B084", "correct": false, "reason": "Says a notified body is required, contradicting internal control under Annex VI."}
+{"blind_id": "B085", "correct": true, "reason": "Says it is high-risk as a safety component and that no notified body is needed (internal control)."}
+{"blind_id": "B086", "correct": true, "reason": "Says it is listed as a high-risk use case."}
+{"blind_id": "B087", "correct": true, "reason": "Gives the same core definition."}
+{"blind_id": "B088", "correct": false, "reason": "Suggests requiring human review can take the system out of high-risk, contradicting the gold answer."}
+{"blind_id": "B089", "correct": true, "reason": "Says no, because it lacks a direct safety function."}
+{"blind_id": "B090", "correct": true, "reason": "Says it depends on the critical-entity designation."}
+{"blind_id": "B091", "correct": true, "reason": "Says it depends on the critical-entity designation."}
+{"blind_id": "B092", "correct": true, "reason": "Says it is not high-risk because the link to harm is indirect."}
+{"blind_id": "B093", "correct": true, "reason": "Says no, it is not an AI system."}
+{"blind_id": "B094", "correct": false, "reason": "Declined to answer."}
+{"blind_id": "B095", "correct": true, "reason": "Says no, citing Article 6(1c)."}
+{"blind_id": "B096", "correct": false, "reason": "Declined to answer."}
+{"blind_id": "B097", "correct": true, "reason": "Says yes, it is listed within the high-risk use case."}
+{"blind_id": "B098", "correct": true, "reason": "Reaches the same conclusion that nuclear production is not covered by point 2, though with different reasoning."}
+{"blind_id": "B099", "correct": false, "reason": "Says a FRIA is required, contradicting the exemption."}
+{"blind_id": "B100", "correct": true, "reason": "Says it is not covered, with the electricity-components nuance."}
+{"blind_id": "B101", "correct": false, "reason": "Gets Section B right but leaves out the Article 2(2) list of applicable provisions."}
+{"blind_id": "B102", "correct": true, "reason": "Says it is not high-risk because it is a cybersecurity-only, independent system."}
+{"blind_id": "B103", "correct": true, "reason": "Says it is listed as a practical example within the high-risk use case."}
+{"blind_id": "B104", "correct": false, "reason": "Gives 2 years instead of at least six months."}
+{"blind_id": "B105", "correct": true, "reason": "Says obligations apply only with significant changes after 2 December 2027."}
+{"blind_id": "B106", "correct": true, "reason": "Says it would not count as an AI system."}
+{"blind_id": "B107", "correct": true, "reason": "Says it is not a high-risk safety component."}
+{"blind_id": "B108", "correct": true, "reason": "Says no FRIA is required under the Article 27(1) exemption."}
+{"blind_id": "B109", "correct": true, "reason": "Says it is not covered, with the electricity-components nuance."}
+{"blind_id": "B110", "correct": false, "reason": "Says obligations apply with a 1 July 2024 cut-off, contradicting the gold answer."}
+{"blind_id": "B111", "correct": true, "reason": "Says the provider must document the assessment and register under Article 49(2)."}
+{"blind_id": "B112", "correct": true, "reason": "Says no, because it does not directly control safety functions."}
+{"blind_id": "B113", "correct": false, "reason": "Says it is high-risk, contradicting the gold answer."}
+{"blind_id": "B114", "correct": true, "reason": "Says yes, a backup system matters in the assessment."}
+{"blind_id": "B115", "correct": true, "reason": "Says no, it is not an AI system."}
+{"blind_id": "B116", "correct": true, "reason": "Says it is not covered, with the electricity-components nuance."}
+{"blind_id": "B117", "correct": true, "reason": "Says no, the Article 6(1)(b) condition is not met."}
+{"blind_id": "B118", "correct": false, "reason": "Declined to answer and does not conclude that the system is high-risk."}
+{"blind_id": "B119", "correct": true, "reason": "Says yes, a backup system should be taken into account."}
+{"blind_id": "B120", "correct": true, "reason": "Says the operator's critical-entity status matters."}
+{"blind_id": "B121", "correct": true, "reason": "Says no, the Article 6(1)(b) condition is not met."}
+{"blind_id": "B122", "correct": true, "reason": "Says it is not high-risk because it is a cybersecurity-only system."}
+{"blind_id": "B123", "correct": true, "reason": "Describes support measures with no guaranteed level of literacy."}
+{"blind_id": "B124", "correct": false, "reason": "Leaves out the 2 December 2027 date the question asks for."}
+{"blind_id": "B125", "correct": true, "reason": "Says yes, it is among the practical examples."}
+{"blind_id": "B126", "correct": true, "reason": "Says no, it has no direct protective function."}
+{"blind_id": "B127", "correct": false, "reason": "Gives a different definition (contributing to safety of the system, persons, property or the environment) instead of the gold wording."}
+{"blind_id": "B128", "correct": false, "reason": "Says the operator's public-utility status matters, not critical-entity designation."}
+{"blind_id": "B129", "correct": true, "reason": "Gives 2 December 2027; the extra detail is consistent with the gold answer."}
+{"blind_id": "B130", "correct": true, "reason": "Gives 2 December 2027."}
+{"blind_id": "B131", "correct": true, "reason": "Says optimisation alone does not make a system a safety component."}
+{"blind_id": "B132", "correct": false, "reason": "Does not give the 2 December 2027 cut-off date the question asks for."}
