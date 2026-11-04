@@ -47,7 +47,7 @@ def test_missing_answers_count_as_failures_with_full_denominators():
     assert s["H1"] == {"n": 1, "of": 2, "pct": 50.0}
     assert s["h1_by_era"]["2024"] == {"n": 0, "of": 1, "pct": 0.0}
     assert s["H3"] == {"n": 0, "of": 1, "pct": 0.0}
-    assert s["false_declines"] == {"n": 1, "of": 2, "pct": 50.0}
+    assert s["false_declines"] == {"n": 0, "of": 2, "pct": 0.0}  # missing is counted apart
     assert s["recall_at_5"] == pytest.approx(0.5)
     assert s["missing"] == 2 and s["invalid"] == 0
     draft = summarize(items, answers, None)["S1"]
@@ -149,7 +149,7 @@ def test_eval_stopped_at_the_budget_writes_an_incomplete_draft(eval_env, monkeyp
     draft = (out / "draft_report.md").read_text()
     assert "INCOMPLETE run: 2 of 4 answers are missing" in draft
     s1_row = next(line for line in draft.splitlines() if line.startswith("| S1 |"))
-    assert "0/1 (0.0%)" in s1_row and "1/1 (100.0%)" in s1_row  # H3 failed, false decline counted
+    assert s1_row.count("0/1 (0.0%)") == 2 and "| 2 |" in s1_row  # H3 failed, no false decline, 2 missing
     assert "| 2 |" in s1_row  # missing column
 
 

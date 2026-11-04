@@ -85,7 +85,7 @@ def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[t
             return rec["declined"] and rec["valid"]
 
         def false_decline(rec):
-            return declined(rec) or rec.get("missing", False)
+            return declined(rec)  # missing answers have their own count, not a decline
 
         precisions = [citation_precision(it["gold_ids"], rec["cited_ids"]) for it, rec in pairs if rec["valid"]]
         cited = [p for p in precisions if p is not None]

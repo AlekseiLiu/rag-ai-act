@@ -37,7 +37,10 @@ answer counts only if it is correct and cites the right source IDs (for example 
   factor), warns at 1 EUR and stops at 3 EUR per `eval` command, keeping partial results. The cap covers the whole
   command, including an index rebuild when the saved index is missing or stale (built from other chunk texts or
   another embedding deployment); `meta.json` records index and answer spend separately and their total. A run that
-  stopped early counts every missing answer as a failure and gets no verdict band ("incomplete").
+  stopped early counts every missing answer as a failure and gets no verdict band ("incomplete"). What the cap
+  guarantees: no new call starts once recorded spend plus open reservations would pass it, and a run stops as soon as
+  recorded spend passes it, so it can be exceeded by at most the cost of the call in flight. Retries after rate-limit
+  (HTTP 429) answers, which the client repeats up to ten times, are not billed by Azure.
 
 ## Results
 

@@ -51,7 +51,7 @@ from rag_ai_act.budget import Budget, BudgetExceeded
 from rag_ai_act.grading import agreement, export_blind, export_stripped, load_verdicts
 from rag_ai_act.ids import matches
 from rag_ai_act.index import TOP_K, BM25Retriever, DenseRetriever
-from rag_ai_act.ingest import Chunk, SourceCheckError, Unit, build_corpus
+from rag_ai_act.ingest import Chunk, SourceCheckError, Unit, build_corpus, verify_sources
 from rag_ai_act.metrics import missing_answers, paraphrase_stability, strict_correct, summarize, verdict_band
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -234,6 +234,11 @@ def cmd_eval(args) -> int:
     from rag_ai_act.systems import run_agent, run_rag, run_s0
     from rag_ai_act.tools import DateClauses, ProvisionStore
 
+    try:  # the evaluated corpus must be the one listed in data/SOURCES.md, also when ingest was skipped
+        verify_sources(RAW_DIR, _expected_hashes())
+    except SourceCheckError as exc:
+        print(f"eval stopped: {exc}", file=sys.stderr)
+        return 1
     names = [s.strip() for s in args.systems.split(",") if s.strip()]
     if not names or any(n not in SYSTEM_NAMES for n in names):
         raise SystemExit(f"--systems must be a comma-separated subset of {','.join(SYSTEM_NAMES)}")
