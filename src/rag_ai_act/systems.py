@@ -60,12 +60,14 @@ Rules:
 Do not add facts, dates or provisions that the sources do not state.
 2. Put the IDs of the sources that support your answer in "cited_ids", written exactly as they appear \
 between the square brackets (for example AIA:Art6(2), AIA:AnnexIII(2), GLHR:para204, GLDEF:para43). Cite \
-every source your answer relies on and no other.
+every source your answer relies on and no other. If the question has several parts, cite the source for \
+each part.
 3. Sources marked "(DRAFT)" come from draft guidelines that are not final. When your answer relies on one, \
 say in the answer text that this comes from draft guidelines. Where a draft guideline and the AI Act \
 disagree, the AI Act prevails.
-4. If the sources do not contain the answer, set "declined" to true, say in "answer" that the sources do \
-not answer the question, and leave "cited_ids" empty. Do not guess.
+4. If the sources do not state the specific fact the question asks for, set "declined" to true, leave \
+"cited_ids" empty, and say in "answer" that the sources do not answer the question; you may add what the \
+sources do state. Do not guess.
 5. Keep the answer short: a few sentences at most.
 6. Reply with one JSON object and nothing else, in exactly this form:
 {"answer": "<your answer>", "cited_ids": ["<source_id>", "..."], "declined": false}"""
@@ -112,8 +114,8 @@ def agent_system_prompt() -> str:
 
 def answer_prompt(question: str, context: str | None, with_id_scheme: bool) -> str:
     """The shared answer prompt (S0..S2), built on ANSWER_RULES: rules (answer only from the context when given; cite source IDs;
-    say when a cited source is a draft; decline with declined=true if the context does not contain the
-    answer), the JSON contract, the context block (None for S0), and for S0 a description of the ID scheme."""
+    say when a cited source is a draft; decline with declined=true if the context does not state the
+    specific fact asked for), the JSON contract, the context block (None for S0), and for S0 a description of the ID scheme."""
     parts = [ANSWER_RULES]
     if with_id_scheme:
         parts.append(_NO_SOURCES)
@@ -244,7 +246,10 @@ def _usage_since(budget: Budget, start: int) -> dict:
 
 
 def _error_answer(exc: BaseException, **fields: Any) -> Answer:
-    return Answer(answer=f"{type(exc).__name__}: {exc}", cited_ids=[], declined=False, valid=False, **fields)
+    """Invalid Answer for a failed call. The answer text is a fixed code with the exception's class name
+    only ("error: RateLimitError"); the exception message is never recorded, since service errors can
+    echo request details."""
+    return Answer(answer=f"error: {type(exc).__name__}", cited_ids=[], declined=False, valid=False, **fields)
 
 
 def _single_call(prompt: str, llm: BaseChatModel, budget: Budget, start: int,

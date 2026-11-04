@@ -20,6 +20,11 @@ from langchain_core.language_models import BaseChatModel
 
 from rag_ai_act.budget import Budget, count_tokens
 
+# Azure answers 429 (rate limit) with a retry-after hint; the OpenAI client waits and retries this many times.
+MAX_RETRIES = 10
+# Inputs per embedding request, so one request stays well under the per-minute token limit.
+EMBED_BATCH = 64
+
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 _PACKAGES = (
     "faiss-cpu",
@@ -72,7 +77,7 @@ def make_llm(max_tokens: int = 600) -> BaseChatModel:
         temperature=0,
         max_tokens=max_tokens,
         timeout=120,
-        max_retries=2,
+        max_retries=MAX_RETRIES,
     )
 
 
@@ -88,8 +93,9 @@ def make_embeddings() -> Embeddings:
         api_key=env["AZURE_OPENAI_API_KEY"],
         api_version=env["AZURE_OPENAI_API_VERSION"],
         azure_deployment=env["AZURE_OPENAI_EMBED_DEPLOYMENT"],
+        chunk_size=EMBED_BATCH,
         timeout=120,
-        max_retries=2,
+        max_retries=MAX_RETRIES,
     )
 
 

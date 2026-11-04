@@ -54,15 +54,22 @@ def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[t
     "recall_at_5": float|None (S1, S2), "evidence_recall": float|None (S3), "citation_precision":
     {"mean": float|None, "n_citing_nothing": k} (answerable items with valid answers only), "multi_hop": {"n", "of"}, "invalid": k, "eur": x}.
     H3 counts declined answers among unanswerables (an invalid answer is not a decline); false_declines
-    counts declined answers among answerables. Every count dict has n, of and pct (pct = 100*n/of, rounded to 1 decimal)."""
+    counts declined answers among answerables. Every count dict has n, of and pct (pct = 100*n/of, rounded to 1 decimal).
+
+    Missing answers (a run stopped at the budget) count as failures in every metric, and every denominator
+    is the full item set: a missing answer is never correct, never a decline of an unanswerable question,
+    counts as a false decline of an answerable one, and retrieves nothing (recall 0). "missing" gives their
+    number per system; "invalid" counts invalid answers that were given. Citation precision covers the
+    valid answers that were given."""
     main = [it for it in items if "paraphrase_of" not in it]
     answerable = [it for it in main if it["type"] != "unanswerable"]
     unanswerable = [it for it in main if it["type"] == "unanswerable"]
     out = {}
     for system, records in answers.items():
         by_qid = {r["qid"]: r for r in records}
-        pairs = [(it, by_qid[it["qid"]]) for it in answerable if it["qid"] in by_qid]
-        upairs = [(it, by_qid[it["qid"]]) for it in unanswerable if it["qid"] in by_qid]
+        # A missing answer stands in as an invalid, non-declined answer that cites and retrieves nothing.
+        pairs = [(it, by_qid.get(it["qid"]) or _missing(it["qid"])) for it in answerable]
+        upairs = [(it, by_qid.get(it["qid"]) or _missing(it["qid"])) for it in unanswerable]
         graded = correct is not None
 
         def strict(it, rec, system=system):
@@ -77,6 +84,9 @@ def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[t
         def declined(rec):
             return rec["declined"] and rec["valid"]
 
+        def false_decline(rec):
+            return declined(rec) or rec.get("missing", False)
+
         precisions = [citation_precision(it["gold_ids"], rec["cited_ids"]) for it, rec in pairs if rec["valid"]]
         cited = [p for p in precisions if p is not None]
         recall = None
@@ -90,7 +100,7 @@ def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[t
             "H1": h1(pairs) if graded else None,
             "H2": h1([p for p in pairs if p[0]["era"] == "2026"]) if graded else None,
             "H3": count(sum(declined(rec) for _, rec in upairs), len(upairs)),
-            "false_declines": count(sum(declined(rec) for _, rec in pairs), len(pairs)),
+            "false_declines": count(sum(false_decline(rec) for _, rec in pairs), len(pairs)),
             "h1_by_era": {
                 era: h1([p for p in pairs if p[0]["era"] == era]) for era in ("2024", "2026")
             }
@@ -103,9 +113,25 @@ def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[t
                 "n_citing_nothing": len(precisions) - len(cited),
             },
             "multi_hop": h1([p for p in pairs if p[0]["type"] == "multi"]) if graded else None,
-            "invalid": sum(not rec["valid"] for _, rec in everything),
+            "invalid": sum(not rec["valid"] and not rec.get("missing", False) for _, rec in everything),
+            "missing": sum(rec.get("missing", False) for _, rec in everything),
             "eur": sum(rec.get("usage", {}).get("eur", 0) for _, rec in everything),
         }
+    return out
+
+
+def _missing(qid: str) -> dict:
+    """Stand-in record for an answer that was never produced: invalid, not declined, nothing cited."""
+    return {"qid": qid, "answer": "", "cited_ids": [], "declined": False, "valid": False, "missing": True,
+            "retrieved_ids": [], "trace": [], "usage": {}, "latency_s": 0.0}
+
+
+def missing_answers(items: list[dict], answers: dict[str, list[dict]]) -> list[tuple[str, str]]:
+    """(system, qid) pairs of every item, paraphrases included, that has no answer record for a system."""
+    out = []
+    for system, records in answers.items():
+        have = {r["qid"] for r in records}
+        out.extend((system, it["qid"]) for it in items if it["qid"] not in have)
     return out
 
 

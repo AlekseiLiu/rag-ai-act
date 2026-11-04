@@ -6,6 +6,7 @@ with exactly the fields of Unit / Chunk below (dataclasses.asdict).
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import re
@@ -35,6 +36,15 @@ DOC_TITLES = {
 }
 # Annexes whose sections restart their point numbering: one unit per section.
 SECTION_ANNEXES = {"I", "VIII", "XI"}
+
+
+class SourceCheckError(RuntimeError):
+    """Raised by verify_sources when a corpus file is missing, has no recorded checksum, or does not match
+    it. Attribute `problems` lists one line per file."""
+
+    def __init__(self, problems: list[str]):
+        super().__init__("corpus files do not match their recorded sha256:\n  " + "\n  ".join(problems))
+        self.problems = problems
 
 
 class CoverageError(RuntimeError):
@@ -659,15 +669,38 @@ def check_coverage(units: list[Unit]) -> dict:
 # ---------------------------------------------------------------------------------------------- corpus
 
 
-def build_corpus(raw_dir: Path, out_dir: Path) -> tuple[list[Unit], list[Chunk]]:
+def verify_sources(raw_dir: Path, expected_sha256: dict[str, str]) -> None:
+    """Check every CORPUS file in raw_dir against expected_sha256 (file name -> hex digest). Raises
+    SourceCheckError listing each file that is missing, has no expected digest, or differs."""
+    problems = []
+    for filename in CORPUS:
+        path = Path(raw_dir) / filename
+        expected = expected_sha256.get(filename)
+        if expected is None:
+            problems.append(f"{filename}: no sha256 recorded")
+        elif not path.is_file():
+            problems.append(f"{filename}: file missing")
+        elif hashlib.sha256(path.read_bytes()).hexdigest() != expected.lower():
+            problems.append(f"{filename}: sha256 differs")
+    if problems:
+        raise SourceCheckError(problems)
+
+
+def build_corpus(raw_dir: Path, out_dir: Path,
+                 expected_sha256: dict[str, str] | None = None) -> tuple[list[Unit], list[Chunk]]:
     """Extract, clean, parse, coverage-check and chunk every CORPUS file in raw_dir; write units.jsonl and
     chunks.jsonl to out_dir; return both lists.
+
+    With expected_sha256 (file name -> hex digest), every CORPUS file is verified first (verify_sources);
+    on any mismatch or missing file SourceCheckError is raised before anything is extracted or written.
 
     The raw (pre-cleaning) extraction of each CORPUS file is also written to `<raw_dir>/../text/<stem>.txt`
     (the folder is created), so the text the parser saw can be inspected and reused. Unit order is made
     unique per document: the GLHR parts are numbered one after another in CORPUS order.
     """
     raw_dir, out_dir = Path(raw_dir), Path(out_dir)
+    if expected_sha256 is not None:
+        verify_sources(raw_dir, expected_sha256)
     text_dir = raw_dir.parent / "text"
     text_dir.mkdir(parents=True, exist_ok=True)
     units: list[Unit] = []

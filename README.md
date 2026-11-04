@@ -16,7 +16,8 @@ answer counts only if it is correct and cites the right source IDs (for example 
 
 ## How it works
 
-- **Ingest.** PDFs in `data/raw/` become legal units (one per paragraph, definition, annex point or guideline
+- **Ingest.** Every PDF is first checked against its SHA-256 in `data/SOURCES.md`; a changed or missing file stops
+  the build before anything is extracted. PDFs in `data/raw/` then become legal units (one per paragraph, definition, annex point or guideline
   paragraph), each with a stable source ID and a draft flag, then chunks of at most 1,000 tokens. A coverage check
   fails the build if an article or guideline paragraph is missing or duplicated.
 - **Systems.** All four share the model, the answer prompt, the chunks and the questions.
@@ -32,8 +33,11 @@ answer counts only if it is correct and cites the right source IDs (for example 
 - **Measures.** H1: strict accuracy (correct, not declined, valid, right source IDs). H2: the same on questions where
   the 2026 text differs from the 2024 text. H3: unanswerable questions declined. Guard: answerable questions
   wrongly declined. A fixed verdict rule (useless, partial, good) is applied to the numbers.
-- **Cost control.** A budget wrapper reserves the cost of every Azure call, warns at 1 EUR and stops at 3 EUR per
-  run, keeping partial results.
+- **Cost control.** A budget wrapper reserves the cost of every Azure call (token estimates with a 1.25 safety
+  factor), warns at 1 EUR and stops at 3 EUR per `eval` command, keeping partial results. The cap covers the whole
+  command, including an index rebuild when the saved index is missing or stale (built from other chunk texts or
+  another embedding deployment); `meta.json` records index and answer spend separately and their total. A run that
+  stopped early counts every missing answer as a failure and gets no verdict band ("incomplete").
 
 ## Results
 
@@ -41,25 +45,58 @@ Pending final run.
 
 ## Reproduce
 
+Commands below call `.venv/bin/python` directly; the Makefile does the same. To type `python` instead, activate the
+environment first with `source .venv/bin/activate`.
+
 ```
-python -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
 make fetch        # verify data/raw against data/SOURCES.md (EUR-Lex files are manual downloads)
-make ingest       # data/raw -> data/processed, coverage-checked (needs pdftotext from poppler)
+make ingest       # SHA-256 check, then data/raw -> data/processed, coverage-checked (needs pdftotext from poppler)
 make check        # ruff + offline tests (no Azure needed)
 ```
 
 With Azure OpenAI credentials in `.env` (`AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_API_VERSION`,
-`AZURE_OPENAI_CHAT_DEPLOYMENT`, `AZURE_OPENAI_EMBED_DEPLOYMENT`):
+`AZURE_OPENAI_CHAT_DEPLOYMENT`, `AZURE_OPENAI_EMBED_DEPLOYMENT`), a development run:
 
 ```
-make index
-python -m rag_ai_act eval --questions eval/dev_v0.jsonl --out results/dev_run
+.venv/bin/python -m rag_ai_act eval --questions eval/dev_v0.jsonl --out results/dev_run
 make chunk-compare                      # dev-set diagnostic: unit chunks vs fixed 500-token chunks
-python -m rag_ai_act report --results results/dev_run   # after grading: verdicts_1.jsonl, verdicts_2.jsonl, verdicts_final.jsonl
 ```
 
-`eval` writes `answers_<S>.jsonl`, `blind.jsonl`, `blind_key.json`, `meta.json` and `draft_report.md`. `eval/dev_v0.jsonl`
-is a development set used to tune prompts; the held-out set is kept apart and used once.
+`eval` loads the FAISS index from `data/index/` when it matches the chunks and the embedding deployment, and
+otherwise builds and saves it within the same budget (`make index` builds it on its own, with its own budget). It
+writes `answers_<S>.jsonl`, `blind.jsonl`, `blind_key.json`, `meta.json` and `draft_report.md` (mechanical
+metrics only). `eval/dev_v0.jsonl` is a development set used to tune prompts; the held-out set is kept apart and
+used once.
+
+### Held-out run
+
+```
+make eval HELDOUT=path/to/heldout.jsonl PARAPHRASES=path/to/paraphrases.jsonl OUT=results/heldout
+make grading-export RESULTS=results/heldout GRADING_DIR=../grading_pass1     # an empty folder outside results/
+# grade (see Grading), save verdicts_1.jsonl, verdicts_2.jsonl and verdicts_final.jsonl in results/heldout
+make report RESULTS=results/heldout     # report.md and report.json
+```
+
+`make eval` runs `ingest` first (free, no API calls) and then a single `eval` command, so the 3 EUR cap covers the
+whole run. The question files stay outside the repository; `meta.json` records only their file names and SHA-256.
+
+## Grading
+
+Correctness of answers to answerable questions is judged by an LLM grader that sees neither system names nor
+question IDs.
+
+1. **Export.** `.venv/bin/python -m rag_ai_act grading-export --results results/<run> --out <folder>` writes
+   `<folder>/blind_stripped.jsonl`: one line per answer with only `blind_id`, `question`, `gold_answer`, `answer`
+   and `declined`. Cited and gold source IDs are left out, because citations are scored mechanically. The folder
+   must be empty and outside the results folder, so the grader cannot see `blind_key.json` or the answer files.
+2. **Two blind passes.** The grader runs in that folder with the prompt in `eval/grading_prompt.md` and returns one
+   `{"blind_id", "correct", "reason"}` line per answer; `correct` must be a JSON `true` or `false`. Two independent
+   passes give `verdicts_1.jsonl` and `verdicts_2.jsonl` in the results folder; the report gives their agreement.
+3. **Settlement.** Each answer the passes disagree on is decided by a person. `verdicts_final.jsonl` is pass 1 with
+   those decisions applied, and is the input for H1 and H2. Without it the report uses pass 1 and says "unsettled".
+4. **Report.** `make report RESULTS=results/<run>` maps verdicts back through `blind_key.json` and writes
+   `report.md` and `report.json`.
 
 ## Limitations
 

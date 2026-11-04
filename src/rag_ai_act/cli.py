@@ -1,20 +1,34 @@
 """Command line: python -m rag_ai_act <command> (Makefile targets wrap these).
 
   fetch                       verify data/raw against data/SOURCES.md sha256; download what can be scripted
-  ingest                      data/raw -> data/processed/{units,chunks}.jsonl (coverage-checked)
+  ingest                      data/raw -> data/processed/{units,chunks}.jsonl (coverage-checked); first checks
+                              every corpus file against its sha256 in data/SOURCES.md and stops on a mismatch
+                              or a missing file, before anything is extracted
   index                       build FAISS index in data/index/ (embeddings, budget-capped)
   eval --questions P [--paraphrases P2] [--systems S0,S1,S2,S3] [--out results/<date>_<tag>]
+                              one budget covers the whole command: the saved index is loaded when it matches
+                              the chunks and the embedding deployment, otherwise it is rebuilt (and saved)
+                              inside the same budget; meta.json "budget" has "index_eur", "answers_eur" and
+                              their total "spent_eur"
                               P2 records: same keys as questions plus "paraphrase_of": <qid of the original>;
                               their answers go into the same answers_<S>.jsonl (paraphrase qids) and into the
                               blind export; report.md uses them only for paraphrase stability
                               run systems, write answers_<S>.jsonl, blind.jsonl, blind_key.json, meta.json,
                               draft_report.md (mechanical metrics only); stops at the budget, keeping results.
-                              meta.json records the questions file by basename and sha256 only (never a path)
+                              meta.json records the questions file by basename and sha256 only (never a path).
+                              If answers are missing (budget stop), they count as failures and the draft
+                              report says the run is incomplete
+  grading-export --results DIR --out FOLDER
+                              write FOLDER/blind_stripped.jsonl, the grader's input: blind.jsonl reduced to
+                              blind_id, question, gold_answer, answer, declined. FOLDER must be empty (it is
+                              created if needed) and outside DIR
   report --results DIR        H1/H2 come from verdicts_final.jsonl (grading pass 1 with the author's settled
                               disagreements); if absent, from verdicts_1.jsonl and the report says "unsettled".
                               Agreement of verdicts_1 vs verdicts_2 reported when both exist. report.md: H1, H2,
                               H3, guard, verdict band, diagnostics incl. answer-only correctness (grader verdict
-                              alone, no citation rule) per system and era, paraphrase stability
+                              alone, no citation rule) per system and era, paraphrase stability. If any
+                              (system, question) answer is missing, the band is "incomplete" and missing
+                              answers count as failures in every metric
   chunk-compare --questions P dev-only diagnostic: recall@5 of chunk=unit vs fixed 500-token chunks (50-token
                               overlap, cut from the concatenated unit texts of each document), for BOTH the BM25
                               and the dense retriever (re-embedding costs well under 0.01 EUR). A fixed chunk
@@ -34,11 +48,11 @@ from datetime import datetime
 from pathlib import Path
 
 from rag_ai_act.budget import Budget, BudgetExceeded
-from rag_ai_act.grading import agreement, export_blind, load_verdicts
+from rag_ai_act.grading import agreement, export_blind, export_stripped, load_verdicts
 from rag_ai_act.ids import matches
 from rag_ai_act.index import TOP_K, BM25Retriever, DenseRetriever
-from rag_ai_act.ingest import Chunk, Unit, build_corpus
-from rag_ai_act.metrics import paraphrase_stability, strict_correct, summarize, verdict_band
+from rag_ai_act.ingest import Chunk, SourceCheckError, Unit, build_corpus
+from rag_ai_act.metrics import missing_answers, paraphrase_stability, strict_correct, summarize, verdict_band
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = ROOT / "data" / "raw"
@@ -95,8 +109,11 @@ def _num(x: float | None) -> str:
 
 def _summary_table(summary: dict) -> list[str]:
     lines = [
-        "| system | H1 | H2 | H3 | false declines | recall@5 | evidence recall | citation precision | multi-hop | invalid | EUR |",
-        "|---|---|---|---|---|---|---|---|---|---|---|",
+        (
+            "| system | H1 | H2 | H3 | false declines | recall@5 | evidence recall | citation precision | multi-hop "
+            "| invalid | missing | EUR |"
+        ),
+        "|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for system, s in summary.items():
         cp = s["citation_precision"]
@@ -104,7 +121,7 @@ def _summary_table(summary: dict) -> list[str]:
             f"| {system} | {_count(s['H1'])} | {_count(s['H2'])} | {_count(s['H3'])} | {_count(s['false_declines'])} "
             f"| {_num(s['recall_at_5'])} | {_num(s['evidence_recall'])} "
             f"| {_num(cp['mean'])} (citing nothing: {cp['n_citing_nothing']}) | {_count(s['multi_hop'])} "
-            f"| {s['invalid']} | {s['eur']:.4f} |"
+            f"| {s['invalid']} | {s.get('missing', 0)} | {s['eur']:.4f} |"
         )
     return lines
 
@@ -160,8 +177,20 @@ def cmd_fetch(args) -> int:
 # ------------------------------------------------------------------------------------------------ ingest, index
 
 
+def _expected_hashes() -> dict[str, str]:
+    """File name -> sha256 from the table in data/SOURCES.md (the parser used by fetch)."""
+    if not SOURCES_MD.is_file():
+        raise SystemExit("data/SOURCES.md is missing: it lists the corpus files and their sha256")
+    return {row["name"]: row["sha256"] for row in _parse_sources(SOURCES_MD.read_text(encoding="utf-8"))}
+
+
 def cmd_ingest(args) -> int:
-    units, chunks = build_corpus(RAW_DIR, PROCESSED_DIR)
+    try:
+        units, chunks = build_corpus(RAW_DIR, PROCESSED_DIR, expected_sha256=_expected_hashes())
+    except SourceCheckError as exc:
+        print(f"ingest stopped, nothing extracted: {exc}", file=sys.stderr)
+        print("run `python -m rag_ai_act fetch` to see which files to download again", file=sys.stderr)
+        return 1
     print(f"ingest: {len(units)} units, {len(chunks)} chunks written to data/processed (coverage check passed)")
     return 0
 
@@ -220,10 +249,12 @@ def cmd_eval(args) -> int:
     llm = make_llm()
     meta = run_metadata()
     result = {"answers": {n: [] for n in names}, "stopped": False, "stopped_at": None}
+    index_eur = None
     try:
         systems = {}
         needs_dense = "S2" in names or "S3" in names
         dense = _dense(chunks, BudgetedEmbeddings(make_embeddings(), budget), save=True) if needs_dense else None
+        index_eur = budget.spent_eur  # a rebuilt index is paid from the same budget as the answers
         bm25 = BM25Retriever(chunks)
         store, dates = ProvisionStore(units), DateClauses(units)
         if "S0" in names:
@@ -238,15 +269,25 @@ def cmd_eval(args) -> int:
     except BudgetExceeded:
         result["stopped"] = True
         result["stopped_at"] = {"system": "setup", "qid": None}
+    if index_eur is None:
+        index_eur = budget.spent_eur
 
     answers = result["answers"]
+    missing = missing_answers(items, answers)
     for name, records in answers.items():
         _write_jsonl(out / f"answers_{name}.jsonl", records)
     _write_jsonl(out / "items.jsonl", items)
     export_blind(items, answers, out)
     meta.update(
         {
-            "budget": {"spent_eur": budget.spent_eur, "warned": budget.warned, "stopped": result["stopped"]},
+            "budget": {
+                "spent_eur": budget.spent_eur,  # total: index_eur + answers_eur
+                "index_eur": index_eur,
+                "answers_eur": budget.spent_eur - index_eur,
+                "warned": budget.warned,
+                "stopped": result["stopped"],
+            },
+            "missing_answers": len(missing),
             "stopped_at": result["stopped_at"],
             "systems": names,
             "questions_file": questions.name,
@@ -261,9 +302,13 @@ def cmd_eval(args) -> int:
     lines = ["# Draft report (mechanical metrics only, no grading yet)", ""]
     if result["stopped"]:
         lines += [f"STOPPED at the budget: {result['stopped_at']}. Results are partial.", ""]
+    if missing:
+        lines += [(f"INCOMPLETE run: {len(missing)} of {len(items) * len(names)} answers are missing; every "
+                   "metric counts them as failures."), ""]
     lines += _summary_table(summary)
     (out / "draft_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"eval: {sum(len(r) for r in answers.values())} answers, {budget.spent_eur:.4f} EUR, written to {out}")
+    print(f"eval: {sum(len(r) for r in answers.values())} answers, {budget.spent_eur:.4f} EUR "
+          f"(index {index_eur:.4f}), written to {out}")
     if result["stopped"]:
         print(f"STOPPED at the budget at {result['stopped_at']}", file=sys.stderr)
         return 2
@@ -281,17 +326,28 @@ def _verdicts(results: Path, name: str) -> dict | None:
 def build_report(results: Path) -> dict:
     """Everything the report shows, as a JSON-serialisable dict."""
     items = _read_jsonl(results / "items.jsonl")
+    meta_path = results / "meta.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.is_file() else {}
+    # The run's systems (from meta.json, else the answer files present); a system with no file has no answers.
+    run_systems = meta.get("systems") or [n for n in SYSTEM_NAMES if (results / f"answers_{n}.jsonl").is_file()]
     answers = {
-        name: _read_jsonl(results / f"answers_{name}.jsonl")
+        name: _read_jsonl(results / f"answers_{name}.jsonl") if (results / f"answers_{name}.jsonl").is_file() else []
         for name in SYSTEM_NAMES
-        if (results / f"answers_{name}.jsonl").is_file()
+        if name in run_systems
     }
     v1, v2, final = (_verdicts(results, n) for n in ("verdicts_1", "verdicts_2", "verdicts_final"))
     correct = final if final is not None else v1
     if correct is None:
         raise SystemExit("no verdicts_final.jsonl or verdicts_1.jsonl in the results folder")
     summary = summarize(items, answers, correct)
-    band = verdict_band(summary) if all(s in summary for s in ("S0", "S1", "S3")) else None
+    missing = missing_answers(items, answers)
+    stopped = meta.get("budget", {}).get("stopped") if meta else None
+    if missing or stopped:
+        band = "incomplete"  # missing answers count as failures; no verdict on a partial run
+    elif all(s in summary for s in ("S0", "S1", "S3")):
+        band = verdict_band(summary)
+    else:
+        band = None
     main = [it for it in items if "paraphrase_of" not in it]
     answerable = [it for it in main if it["type"] != "unanswerable"]
 
@@ -304,9 +360,9 @@ def build_report(results: Path) -> dict:
             ("2024", [i for i in answerable if i["era"] == "2024"]),
             ("2026", [i for i in answerable if i["era"] == "2026"]),
         ):
-            have = [i for i in subset if i["qid"] in by_qid]
-            n = sum(correct.get((system, i["qid"]), False) for i in have)
-            row[label] = {"n": n, "of": len(have), "pct": round(100 * n / len(have), 1) if have else 0.0}
+            # missing answers count as wrong: the denominator is the whole subset
+            n = sum(correct.get((system, i["qid"]), False) for i in subset if i["qid"] in by_qid)
+            row[label] = {"n": n, "of": len(subset), "pct": round(100 * n / len(subset), 1) if subset else 0.0}
         answer_only[system] = row
 
     by_qid_item = {it["qid"]: it for it in items}
@@ -314,12 +370,17 @@ def build_report(results: Path) -> dict:
     for system, records in answers.items():
         by_qid = {r["qid"]: r for r in records}
         orig, para = [], []
+
+        def strict(item, system=system, by_qid=by_qid):
+            rec = by_qid.get(item["qid"])  # a missing answer is not strict-correct
+            return rec is not None and strict_correct(item, rec, correct.get((system, item["qid"]), False))
+
         for it in items:
             base = by_qid_item.get(it.get("paraphrase_of", ""))
-            if base is None or it["qid"] not in by_qid or base["qid"] not in by_qid:
+            if base is None:
                 continue
-            para.append(strict_correct(it, by_qid[it["qid"]], correct.get((system, it["qid"]), False)))
-            orig.append(strict_correct(base, by_qid[base["qid"]], correct.get((system, base["qid"]), False)))
+            para.append(strict(it))
+            orig.append(strict(base))
         if para:
             stability[system] = {**paraphrase_stability(orig, para), "n_items": len(para)}
 
@@ -327,8 +388,6 @@ def build_report(results: Path) -> dict:
     if v1 is not None and v2 is not None:
         agree = agreement(v1, v2)
         agree["disagreements"] = [list(d) for d in agree["disagreements"]]
-    meta_path = results / "meta.json"
-    stopped = json.loads(meta_path.read_text(encoding="utf-8"))["budget"]["stopped"] if meta_path.is_file() else None
     return {
         "verdicts_source": "verdicts_final" if final is not None else "verdicts_1",
         "settled": final is not None,
@@ -338,6 +397,7 @@ def build_report(results: Path) -> dict:
         "answer_only": answer_only,
         "paraphrase_stability": stability,
         "run_stopped_at_budget": stopped,
+        "missing_answers": len(missing),
     }
 
 
@@ -349,11 +409,17 @@ def render_report(rep: dict) -> str:
         lines += ["Grading status: verdicts_final.jsonl (pass 1 with settled disagreements).", ""]
     if rep["run_stopped_at_budget"]:
         lines += ["The run stopped at the budget; results are partial.", ""]
+    if rep["band"] == "incomplete":
+        lines += [(f"INCOMPLETE run: {rep['missing_answers']} answers are missing; every metric counts them "
+                   "as failures and no verdict band is given."), ""]
     lines += ["## H1, H2, H3, guard", ""] + _summary_table(rep["summary"])
     lines += ["", "H1: strict accuracy on answerable questions (verdict correct, not declined, valid, right source IDs).",
               "H2: the same on 2026-era questions. H3: declined unanswerable questions.",
               "Guard: false declines among answerable questions.", ""]
-    lines += ["## Verdict band", "", f"{rep['band'] or 'not computable (needs S0, S1 and S3)'}", ""]
+    band = rep["band"] or "not computable (needs S0, S1 and S3)"
+    if band == "incomplete":
+        band = "incomplete (answers are missing, so no verdict band)"
+    lines += ["## Verdict band", "", band, ""]
     lines += ["## Grader agreement (pass 1 vs pass 2)", ""]
     a = rep["agreement"]
     lines += ["not available (needs verdicts_1 and verdicts_2)" if a is None
@@ -379,6 +445,25 @@ def cmd_report(args) -> int:
     (results / "report.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
     (results / "report.md").write_text(render_report(rep), encoding="utf-8")
     print(f"report: band {rep['band']}, written to {results}/report.md and report.json")
+    return 0
+
+
+# ------------------------------------------------------------------------------------------------ grading-export
+
+
+def cmd_grading_export(args) -> int:
+    results = Path(args.results)
+    blind = results / "blind.jsonl"
+    if not blind.is_file():
+        print(f"no blind.jsonl in {results}: run eval first", file=sys.stderr)
+        return 1
+    try:
+        path = export_stripped(blind, Path(args.out))
+    except ValueError as exc:
+        print(f"grading-export refused: {exc}", file=sys.stderr)
+        return 1
+    n = sum(1 for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    print(f"grading-export: {n} answers written to {path}")
     return 0
 
 
@@ -470,6 +555,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--systems", default=",".join(SYSTEM_NAMES))
     p.add_argument("--out")
     p.set_defaults(func=cmd_eval)
+    p = sub.add_parser("grading-export", help="write the grader's input (blind_stripped.jsonl) into an empty folder")
+    p.add_argument("--results", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_grading_export)
     p = sub.add_parser("report", help="H1, H2, H3, guard, verdict band and diagnostics from graded results")
     p.add_argument("--results", required=True)
     p.set_defaults(func=cmd_report)
