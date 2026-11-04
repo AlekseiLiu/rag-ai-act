@@ -1,0 +1,278 @@
+{
+ "verdicts_source": "verdicts_final",
+ "settled": true,
+ "summary": {
+  "S0": {
+   "H1": {
+    "n": 1,
+    "of": 23,
+    "pct": 4.3
+   },
+   "H2": {
+    "n": 1,
+    "of": 17,
+    "pct": 5.9
+   },
+   "H3": {
+    "n": 6,
+    "of": 6,
+    "pct": 100.0
+   },
+   "false_declines": {
+    "n": 0,
+    "of": 23,
+    "pct": 0.0
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 0,
+     "of": 6,
+     "pct": 0.0
+    },
+    "2026": {
+     "n": 1,
+     "of": 17,
+     "pct": 5.9
+    }
+   },
+   "recall_at_5": null,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.2608695652173913,
+    "n_citing_nothing": 0
+   },
+   "multi_hop": {
+    "n": 0,
+    "of": 6,
+    "pct": 0.0
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.010378704
+  },
+  "S1": {
+   "H1": {
+    "n": 7,
+    "of": 23,
+    "pct": 30.4
+   },
+   "H2": {
+    "n": 4,
+    "of": 17,
+    "pct": 23.5
+   },
+   "H3": {
+    "n": 4,
+    "of": 6,
+    "pct": 66.7
+   },
+   "false_declines": {
+    "n": 3,
+    "of": 23,
+    "pct": 13.0
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 3,
+     "of": 6,
+     "pct": 50.0
+    },
+    "2026": {
+     "n": 4,
+     "of": 17,
+     "pct": 23.5
+    }
+   },
+   "recall_at_5": 0.391304347826087,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.4,
+    "n_citing_nothing": 3
+   },
+   "multi_hop": {
+    "n": 1,
+    "of": 6,
+    "pct": 16.7
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.022206960000000005
+  },
+  "S2": {
+   "H1": {
+    "n": 12,
+    "of": 23,
+    "pct": 52.2
+   },
+   "H2": {
+    "n": 10,
+    "of": 17,
+    "pct": 58.8
+   },
+   "H3": {
+    "n": 6,
+    "of": 6,
+    "pct": 100.0
+   },
+   "false_declines": {
+    "n": 1,
+    "of": 23,
+    "pct": 4.3
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 2,
+     "of": 6,
+     "pct": 33.3
+    },
+    "2026": {
+     "n": 10,
+     "of": 17,
+     "pct": 58.8
+    }
+   },
+   "recall_at_5": 0.5869565217391305,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.4696969696969697,
+    "n_citing_nothing": 1
+   },
+   "multi_hop": {
+    "n": 2,
+    "of": 6,
+    "pct": 33.3
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.017367300000000002
+  },
+  "S3": {
+   "H1": {
+    "n": 10,
+    "of": 23,
+    "pct": 43.5
+   },
+   "H2": {
+    "n": 9,
+    "of": 17,
+    "pct": 52.9
+   },
+   "H3": {
+    "n": 3,
+    "of": 6,
+    "pct": 50.0
+   },
+   "false_declines": {
+    "n": 0,
+    "of": 23,
+    "pct": 0.0
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 1,
+     "of": 6,
+     "pct": 16.7
+    },
+    "2026": {
+     "n": 9,
+     "of": 17,
+     "pct": 52.9
+    }
+   },
+   "recall_at_5": null,
+   "evidence_recall": 0.5434782608695652,
+   "citation_precision": {
+    "mean": 0.3101449275362319,
+    "n_citing_nothing": 0
+   },
+   "multi_hop": {
+    "n": 2,
+    "of": 6,
+    "pct": 33.3
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.07432278880000001
+  }
+ },
+ "band": "partial",
+ "agreement": {
+  "n": 92,
+  "of": 92,
+  "pct": 100.0,
+  "disagreements": []
+ },
+ "answer_only": {
+  "S0": {
+   "all": {
+    "n": 5,
+    "of": 23,
+    "pct": 21.7
+   },
+   "2024": {
+    "n": 0,
+    "of": 6,
+    "pct": 0.0
+   },
+   "2026": {
+    "n": 5,
+    "of": 17,
+    "pct": 29.4
+   }
+  },
+  "S1": {
+   "all": {
+    "n": 10,
+    "of": 23,
+    "pct": 43.5
+   },
+   "2024": {
+    "n": 3,
+    "of": 6,
+    "pct": 50.0
+   },
+   "2026": {
+    "n": 7,
+    "of": 17,
+    "pct": 41.2
+   }
+  },
+  "S2": {
+   "all": {
+    "n": 15,
+    "of": 23,
+    "pct": 65.2
+   },
+   "2024": {
+    "n": 2,
+    "of": 6,
+    "pct": 33.3
+   },
+   "2026": {
+    "n": 13,
+    "of": 17,
+    "pct": 76.5
+   }
+  },
+  "S3": {
+   "all": {
+    "n": 14,
+    "of": 23,
+    "pct": 60.9
+   },
+   "2024": {
+    "n": 2,
+    "of": 6,
+    "pct": 33.3
+   },
+   "2026": {
+    "n": 12,
+    "of": 17,
+    "pct": 70.6
+   }
+  }
+ },
+ "paraphrase_stability": {},
+ "run_stopped_at_budget": false,
+ "missing_answers": 0
+}

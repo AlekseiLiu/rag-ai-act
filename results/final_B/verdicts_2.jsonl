@@ -1,0 +1,92 @@
+{"blind_id": "B001", "correct": true, "reason": "Covers both documenting the assessment and registering under Article 49(2)."}
+{"blind_id": "B002", "correct": false, "reason": "Says an FRIA is required, but the gold says Article 27(1) exempts point 2 of Annex III."}
+{"blind_id": "B003", "correct": false, "reason": "Section B is right, but it says the full high-risk requirements apply instead of the Article 2(2) limits."}
+{"blind_id": "B004", "correct": true, "reason": "Gives the amended definition: intended purpose to prevent or mitigate risks to health and safety of persons or property."}
+{"blind_id": "B005", "correct": false, "reason": "Gets high-risk right but leaves out that no notified body is needed (Annex VI internal control)."}
+{"blind_id": "B006", "correct": false, "reason": "Says 15 days instead of the two-day deadline for a critical-infrastructure disruption."}
+{"blind_id": "B007", "correct": true, "reason": "Covers documenting the assessment and registering in the EU database."}
+{"blind_id": "B008", "correct": true, "reason": "Not high-risk: no direct safety function, only a precautionary measure that enriches decisions."}
+{"blind_id": "B009", "correct": true, "reason": "Concludes that the DSO's status matters, as the gold does."}
+{"blind_id": "B010", "correct": true, "reason": "Says human review alone does not remove high-risk status and points to Article 6(3) conditions."}
+{"blind_id": "B011", "correct": true, "reason": "Rules apply only on significant change from 2 December 2027, with 2 August 2030 for public authorities."}
+{"blind_id": "B012", "correct": true, "reason": "No; an efficiency-only tool has no direct protective function."}
+{"blind_id": "B013", "correct": false, "reason": "Says 1 January 2027 instead of 2 December 2027."}
+{"blind_id": "B014", "correct": true, "reason": "Status matters: high-risk only if used by an identified critical entity under the CER Directive."}
+{"blind_id": "B015", "correct": false, "reason": "Declined."}
+{"blind_id": "B016", "correct": false, "reason": "Says yes, but the gold excludes nuclear energy production from point 2 of Annex III."}
+{"blind_id": "B017", "correct": true, "reason": "Yes, the anomaly-detection example falls within the high-risk electricity use case."}
+{"blind_id": "B018", "correct": false, "reason": "Gives a different definition (direct or indirect, fundamental rights, safe operation of the AI system)."}
+{"blind_id": "B019", "correct": true, "reason": "National-level registration under Article 49(5)."}
+{"blind_id": "B020", "correct": true, "reason": "No; efficiency alone does not make it a safety component."}
+{"blind_id": "B021", "correct": false, "reason": "Says a third-party conformity assessment is needed, but the gold says internal control under Annex VI."}
+{"blind_id": "B022", "correct": false, "reason": "Says high-risk, but the gold says not high-risk."}
+{"blind_id": "B023", "correct": true, "reason": "Yes, it falls within the high-risk electricity use case."}
+{"blind_id": "B024", "correct": true, "reason": "Nuclear production is excluded, while electricity components could be included."}
+{"blind_id": "B025", "correct": true, "reason": "No; it needs a direct protective safety function."}
+{"blind_id": "B026", "correct": false, "reason": "Cites transparency obligations instead of documenting the assessment and registering."}
+{"blind_id": "B027", "correct": false, "reason": "Says it is not clearly high-risk, which contradicts the gold's high-risk conclusion."}
+{"blind_id": "B028", "correct": true, "reason": "Not high-risk: one precautionary layer with no direct safety function."}
+{"blind_id": "B029", "correct": false, "reason": "Gives only a conditional 'may not' and uses mere-conduit reasoning instead of the cybersecurity-only exclusion."}
+{"blind_id": "B030", "correct": false, "reason": "Says EU database instead of national-level registration."}
+{"blind_id": "B031", "correct": false, "reason": "Gives the wrong date (18 months after entry into force) instead of 2 December 2027."}
+{"blind_id": "B032", "correct": true, "reason": "Concludes it falls outside the AI system definition."}
+{"blind_id": "B033", "correct": false, "reason": "Says Section A instead of Section B."}
+{"blind_id": "B034", "correct": false, "reason": "Hedges without reaching the gold's clear 'not AI' conclusion and says the scenario is not addressed."}
+{"blind_id": "B035", "correct": true, "reason": "No; human review does not by itself change the classification."}
+{"blind_id": "B036", "correct": true, "reason": "Applies only on significant change, with the cut-off postponed to 2 December 2027 and 2030 for public authorities."}
+{"blind_id": "B037", "correct": true, "reason": "2 December 2027."}
+{"blind_id": "B038", "correct": false, "reason": "Declined."}
+{"blind_id": "B039", "correct": false, "reason": "Says an external certification body is required, which contradicts internal control."}
+{"blind_id": "B040", "correct": true, "reason": "No, matching Article 6(1c)."}
+{"blind_id": "B041", "correct": true, "reason": "Yes, a backup system is taken into consideration."}
+{"blind_id": "B042", "correct": true, "reason": "Concludes it falls outside the AI system definition."}
+{"blind_id": "B043", "correct": true, "reason": "Yes, the redundant or backup system should be considered."}
+{"blind_id": "B044", "correct": true, "reason": "No, matching Article 6(1c)."}
+{"blind_id": "B045", "correct": false, "reason": "Says the DSO's status does not matter, which contradicts the gold."}
+{"blind_id": "B046", "correct": true, "reason": "No; efficiency alone does not qualify."}
+{"blind_id": "B047", "correct": false, "reason": "Gives no cut-off date and does not address the transitional rule."}
+{"blind_id": "B048", "correct": false, "reason": "Says 15 days instead of two days."}
+{"blind_id": "B049", "correct": false, "reason": "Suggests it may be AI, which contradicts the gold's 'no'."}
+{"blind_id": "B050", "correct": true, "reason": "No, citing Article 6(1c)."}
+{"blind_id": "B051", "correct": false, "reason": "Says the fallback safeguard does not affect the assessment, which contradicts the gold."}
+{"blind_id": "B052", "correct": false, "reason": "Cites Article 49(2) and documentation instead of national registration under Article 49(5)."}
+{"blind_id": "B053", "correct": false, "reason": "Says there are no explicit obligations, leaving out documentation and registration."}
+{"blind_id": "B054", "correct": false, "reason": "Describes the corrective-action duty, not reporting within two days."}
+{"blind_id": "B055", "correct": false, "reason": "Says the company must ensure appropriate knowledge, which contradicts 'support, no guaranteed level'."}
+{"blind_id": "B056", "correct": true, "reason": "Nuclear production is excluded, while electricity components could be included."}
+{"blind_id": "B057", "correct": false, "reason": "Says the deployer's status does not matter, which contradicts the gold."}
+{"blind_id": "B058", "correct": false, "reason": "Declined."}
+{"blind_id": "B059", "correct": true, "reason": "Not high-risk; no direct safety function."}
+{"blind_id": "B060", "correct": true, "reason": "2 December 2027."}
+{"blind_id": "B061", "correct": true, "reason": "Appropriate period, at least six months, unless other law provides otherwise."}
+{"blind_id": "B062", "correct": false, "reason": "Defines it by being part of an Annex I product instead of by safety-function purpose."}
+{"blind_id": "B063", "correct": false, "reason": "Says an FRIA is required, but the gold says critical infrastructure is exempt."}
+{"blind_id": "B064", "correct": false, "reason": "Section B is right, but it misses the Article 2(2) limit to Articles 6(1), 60a and 102–112."}
+{"blind_id": "B065", "correct": false, "reason": "Gets high-risk right but gives no application date."}
+{"blind_id": "B066", "correct": true, "reason": "Human review alone is not enough; intended purpose governs."}
+{"blind_id": "B067", "correct": false, "reason": "Says a reactor safety AI is high-risk, which contradicts the nuclear exclusion."}
+{"blind_id": "B068", "correct": true, "reason": "At least six months unless law provides otherwise."}
+{"blind_id": "B069", "correct": false, "reason": "Says the fallback safeguard does not determine the outcome, which contradicts the gold."}
+{"blind_id": "B070", "correct": false, "reason": "Says 5 years instead of at least six months."}
+{"blind_id": "B071", "correct": false, "reason": "Declined."}
+{"blind_id": "B072", "correct": true, "reason": "At least six months unless Union or national law provides otherwise."}
+{"blind_id": "B073", "correct": false, "reason": "Says it would be high-risk, which contradicts the gold."}
+{"blind_id": "B074", "correct": false, "reason": "Gives the wrong cut-off (17 July 2024) and wrongly concludes the rules apply."}
+{"blind_id": "B075", "correct": true, "reason": "Duty to support AI literacy without guaranteeing a specific level."}
+{"blind_id": "B076", "correct": false, "reason": "Says high-risk, which contradicts the gold."}
+{"blind_id": "B077", "correct": true, "reason": "Not high-risk; no direct safety function."}
+{"blind_id": "B078", "correct": true, "reason": "Human review alone is not sufficient; Article 6(3) conditions are needed."}
+{"blind_id": "B079", "correct": true, "reason": "No, it does not meet the Article 6(1)(b) test."}
+{"blind_id": "B080", "correct": true, "reason": "Gives the intended purpose to prevent or mitigate risks to health and safety of persons or property."}
+{"blind_id": "B081", "correct": true, "reason": "High-risk, applying from 2 December 2027."}
+{"blind_id": "B082", "correct": true, "reason": "Yes, it falls within the high-risk electricity use case."}
+{"blind_id": "B083", "correct": true, "reason": "Yes, high-risk in the power-supply category."}
+{"blind_id": "B084", "correct": false, "reason": "Does not reach the gold's 'no' and makes the outcome depend on critical-entity status."}
+{"blind_id": "B085", "correct": false, "reason": "Says an FRIA is required, which contradicts the Article 27(1) exemption."}
+{"blind_id": "B086", "correct": false, "reason": "Says high-risk, which contradicts the gold."}
+{"blind_id": "B087", "correct": false, "reason": "Says an FRIA is required, which contradicts the exemption."}
+{"blind_id": "B088", "correct": false, "reason": "Gets high-risk right but gives no application date."}
+{"blind_id": "B089", "correct": true, "reason": "Not high-risk; no direct link to harm."}
+{"blind_id": "B090", "correct": false, "reason": "Says Section A instead of Section B."}
+{"blind_id": "B091", "correct": true, "reason": "No; cybersecurity-only monitoring that runs independently of operational technology is not high-risk."}
+{"blind_id": "B092", "correct": true, "reason": "Duty to support AI literacy without guaranteeing a specific level."}

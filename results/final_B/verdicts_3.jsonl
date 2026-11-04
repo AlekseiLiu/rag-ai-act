@@ -1,0 +1,92 @@
+{"blind_id": "B001", "correct": true, "reason": "It includes both the documentation and EU database registration obligations."}
+{"blind_id": "B002", "correct": false, "reason": "The gold answer exempts this use from the fundamental rights impact assessment."}
+{"blind_id": "B003", "correct": false, "reason": "It wrongly says the full Title III requirements apply."}
+{"blind_id": "B004", "correct": false, "reason": "It adds failure or malfunction as an alternative to the intended-purpose test."}
+{"blind_id": "B005", "correct": false, "reason": "It omits the required conclusion that no external certification body is needed."}
+{"blind_id": "B006", "correct": false, "reason": "The reporting deadline is two days, not 15 days."}
+{"blind_id": "B007", "correct": true, "reason": "It includes both documentation and EU database registration."}
+{"blind_id": "B008", "correct": true, "reason": "It gives the same no-high-risk conclusion and rationale."}
+{"blind_id": "B009", "correct": true, "reason": "It correctly says the DSO’s status matters."}
+{"blind_id": "B010", "correct": true, "reason": "It correctly says human review alone does not remove high-risk status."}
+{"blind_id": "B011", "correct": true, "reason": "It gives the significant-change rule and the 2 December 2027 cut-off."}
+{"blind_id": "B012", "correct": true, "reason": "It correctly excludes an efficiency-only tool from the safety-component category."}
+{"blind_id": "B013", "correct": false, "reason": "The gold answer gives 2 December 2027, not 1 January 2027."}
+{"blind_id": "B014", "correct": true, "reason": "It correctly requires designation as a critical entity."}
+{"blind_id": "B015", "correct": false, "reason": "It declines to give the required date."}
+{"blind_id": "B016", "correct": false, "reason": "The gold answer excludes nuclear energy production from this category."}
+{"blind_id": "B017", "correct": true, "reason": "It identifies the described grid-monitoring use as high-risk."}
+{"blind_id": "B018", "correct": false, "reason": "It substitutes a broader test that includes indirect functions and fundamental rights."}
+{"blind_id": "B019", "correct": true, "reason": "It correctly identifies national-level registration."}
+{"blind_id": "B020", "correct": true, "reason": "It correctly says an efficiency-only tool is not a safety component."}
+{"blind_id": "B021", "correct": false, "reason": "It wrongly requires an external conformity assessment body."}
+{"blind_id": "B022", "correct": false, "reason": "The gold answer classifies this forecasting model as not high-risk."}
+{"blind_id": "B023", "correct": true, "reason": "It correctly places the described anomaly detection in the high-risk category."}
+{"blind_id": "B024", "correct": true, "reason": "It gives the nuclear-production exclusion and electricity-component qualification."}
+{"blind_id": "B025", "correct": true, "reason": "It correctly excludes an efficiency-only tool from the safety-component category."}
+{"blind_id": "B026", "correct": false, "reason": "It omits both the documentation and registration obligations."}
+{"blind_id": "B027", "correct": false, "reason": "It fails to classify the fire-warning system as high-risk."}
+{"blind_id": "B028", "correct": true, "reason": "It correctly says the precautionary warning tool is not high-risk."}
+{"blind_id": "B029", "correct": false, "reason": "It gives only a conditional possibility instead of the gold answer’s exclusion."}
+{"blind_id": "B030", "correct": false, "reason": "The required registration is national, not in the EU database."}
+{"blind_id": "B031", "correct": false, "reason": "It omits the required 2 December 2027 application date."}
+{"blind_id": "B032", "correct": true, "reason": "It correctly concludes that the described software falls outside the AI-system definition."}
+{"blind_id": "B033", "correct": false, "reason": "It gives the wrong Annex I section and applicable provisions."}
+{"blind_id": "B034", "correct": false, "reason": "It does not reach the gold answer’s definite exclusion."}
+{"blind_id": "B035", "correct": true, "reason": "It correctly says human review alone does not change the classification."}
+{"blind_id": "B036", "correct": true, "reason": "It ultimately identifies 2 December 2027 as the amended cut-off and gives the significant-change rule."}
+{"blind_id": "B037", "correct": true, "reason": "It gives the correct application date of 2 December 2027."}
+{"blind_id": "B038", "correct": false, "reason": "It declines to give the required reporting deadline."}
+{"blind_id": "B039", "correct": false, "reason": "It wrongly requires an external certification body."}
+{"blind_id": "B040", "correct": true, "reason": "It correctly says these non-safety risks do not satisfy Article 6(1)(b)."}
+{"blind_id": "B041", "correct": true, "reason": "It correctly says a protective fallback safeguard matters to the assessment."}
+{"blind_id": "B042", "correct": true, "reason": "It correctly excludes the described first-principles calculation software."}
+{"blind_id": "B043", "correct": true, "reason": "It correctly says a protective backup system should be considered."}
+{"blind_id": "B044", "correct": true, "reason": "It correctly says the specified assessment does not satisfy Article 6(1)(b)."}
+{"blind_id": "B045", "correct": false, "reason": "It wrongly says the DSO’s critical-entity status does not matter."}
+{"blind_id": "B046", "correct": true, "reason": "It correctly excludes a tool used only for efficiency or cost reduction."}
+{"blind_id": "B047", "correct": false, "reason": "It omits the cut-off date the question asks for."}
+{"blind_id": "B048", "correct": false, "reason": "The gold answer requires reporting within two days, not 15 days."}
+{"blind_id": "B049", "correct": false, "reason": "It leaves open an AI classification that the gold answer excludes."}
+{"blind_id": "B050", "correct": true, "reason": "It correctly applies the non-safety-risk exception to Article 6(1)(b)."}
+{"blind_id": "B051", "correct": false, "reason": "The gold answer says a protective fallback safeguard does affect the assessment."}
+{"blind_id": "B052", "correct": false, "reason": "It gives the wrong registration route and omits national-level filing."}
+{"blind_id": "B053", "correct": false, "reason": "It denies the additional documentation and registration obligations in the gold answer."}
+{"blind_id": "B054", "correct": false, "reason": "It does not give the required two-day serious-incident reporting deadline."}
+{"blind_id": "B055", "correct": false, "reason": "It asserts an appropriate-skills requirement instead of the gold answer’s support obligation."}
+{"blind_id": "B056", "correct": true, "reason": "It excludes nuclear energy production while preserving the electricity-component qualification."}
+{"blind_id": "B057", "correct": false, "reason": "It wrongly says critical-entity designation is irrelevant."}
+{"blind_id": "B058", "correct": false, "reason": "It declines to answer an answerable question."}
+{"blind_id": "B059", "correct": true, "reason": "It correctly says this planning forecast is not high-risk."}
+{"blind_id": "B060", "correct": true, "reason": "It gives the correct application date of 2 December 2027."}
+{"blind_id": "B061", "correct": true, "reason": "It gives the correct minimum retention period and legal exception."}
+{"blind_id": "B062", "correct": false, "reason": "It does not give the intended-purpose safety-function test."}
+{"blind_id": "B063", "correct": false, "reason": "The gold answer exempts critical-infrastructure systems from this assessment."}
+{"blind_id": "B064", "correct": false, "reason": "It omits most of the AI Act provisions that the gold answer says apply."}
+{"blind_id": "B065", "correct": false, "reason": "It omits the required 2 December 2027 application date."}
+{"blind_id": "B066", "correct": true, "reason": "It correctly says human review alone cannot remove high-risk status."}
+{"blind_id": "B067", "correct": false, "reason": "It wrongly includes nuclear reactor safety functions in this high-risk category."}
+{"blind_id": "B068", "correct": true, "reason": "It gives the core minimum retention period of six months."}
+{"blind_id": "B069", "correct": false, "reason": "It says fallback safeguards are irrelevant, contrary to the gold answer."}
+{"blind_id": "B070", "correct": false, "reason": "The gold answer gives at least six months, not five years."}
+{"blind_id": "B071", "correct": false, "reason": "It declines to identify the national-level registration requirement."}
+{"blind_id": "B072", "correct": true, "reason": "It gives the six-month minimum and the legal exception."}
+{"blind_id": "B073", "correct": false, "reason": "It conditionally classifies the forecasting model as high-risk despite the gold answer’s exclusion."}
+{"blind_id": "B074", "correct": false, "reason": "It gives the wrong cut-off and wrongly applies the high-risk rules to the unchanged 2025 system."}
+{"blind_id": "B075", "correct": true, "reason": "It correctly distinguishes supporting AI literacy from guaranteeing a specific level."}
+{"blind_id": "B076", "correct": false, "reason": "The gold answer excludes cybersecurity-only monitoring from this high-risk category."}
+{"blind_id": "B077", "correct": true, "reason": "It correctly excludes the precautionary warning tool from high-risk classification."}
+{"blind_id": "B078", "correct": true, "reason": "It correctly says human review alone is insufficient."}
+{"blind_id": "B079", "correct": true, "reason": "It correctly says these non-safety risks do not satisfy Article 6(1)(b)."}
+{"blind_id": "B080", "correct": false, "reason": "It adds failure or malfunction as a further condition for the safety function."}
+{"blind_id": "B081", "correct": true, "reason": "It gives both the high-risk classification and 2 December 2027 date."}
+{"blind_id": "B082", "correct": true, "reason": "It correctly identifies this grid anomaly detection as high-risk."}
+{"blind_id": "B083", "correct": true, "reason": "It correctly classifies the described grid-monitoring model as high-risk."}
+{"blind_id": "B084", "correct": false, "reason": "It misses the gold answer’s exclusion for cybersecurity-only monitoring."}
+{"blind_id": "B085", "correct": false, "reason": "The gold answer exempts this critical-infrastructure use from the assessment."}
+{"blind_id": "B086", "correct": false, "reason": "The gold answer says this precautionary warning tool is not high-risk."}
+{"blind_id": "B087", "correct": false, "reason": "It wrongly requires a fundamental rights impact assessment for this category."}
+{"blind_id": "B088", "correct": false, "reason": "It omits the required 2 December 2027 application date."}
+{"blind_id": "B089", "correct": true, "reason": "It correctly says the supervised forecasting model is not high-risk."}
+{"blind_id": "B090", "correct": false, "reason": "It gives the wrong Annex I section and applicable AI Act requirements."}
+{"blind_id": "B091", "correct": true, "reason": "It correctly excludes cybersecurity-only monitoring from high-risk classification."}
+{"blind_id": "B092", "correct": true, "reason": "It correctly states the support obligation without a guaranteed literacy level."}

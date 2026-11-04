@@ -1,0 +1,92 @@
+{"blind_id": "B001", "correct": true, "reason": "Like the gold answer, it requires documenting the assessment and registering under Article 49(2) before placing the system on the market."}
+{"blind_id": "B002", "correct": false, "reason": "It says a fundamental rights impact assessment is required, but the gold answer says Article 27(1) exempts critical infrastructure."}
+{"blind_id": "B003", "correct": false, "reason": "Section B is right, but it says the full Title III requirements apply instead of only Article 6(1), Article 60a and Articles 102-112."}
+{"blind_id": "B004", "correct": true, "reason": "Settled by the author: keeps the Article 3(14) 'or' structure; the intended-purpose test is stated correctly."}
+{"blind_id": "B005", "correct": false, "reason": "It gets high-risk right but does not answer that no notified body is needed (internal control applies)."}
+{"blind_id": "B006", "correct": false, "reason": "It gives 15 days instead of immediately and within two days."}
+{"blind_id": "B007", "correct": true, "reason": "It matches the gold answer: document the assessment and register in the EU database before market placement."}
+{"blind_id": "B008", "correct": true, "reason": "Not high-risk: no direct safety function, a precautionary measure that only enriches decisions."}
+{"blind_id": "B009", "correct": true, "reason": "Like the gold answer, it concludes that the DSO's status matters and that classification is not automatic."}
+{"blind_id": "B010", "correct": true, "reason": "Like the gold answer, it says human review alone is not enough and only matters through the Article 6(3) conditions."}
+{"blind_id": "B011", "correct": true, "reason": "Only significant changes trigger the rules, the cut-off is 2 December 2027, and public-authority systems must comply by 2 August 2030."}
+{"blind_id": "B012", "correct": true, "reason": "No: efficiency or cost tools lack a direct protective function."}
+{"blind_id": "B013", "correct": false, "reason": "It gives 1 January 2027 instead of 2 December 2027."}
+{"blind_id": "B014", "correct": true, "reason": "Status matters: the system is high-risk only if used by a critical entity under the CER Directive."}
+{"blind_id": "B015", "correct": false, "reason": "The answer declined."}
+{"blind_id": "B016", "correct": false, "reason": "It says yes, but the gold answer says nuclear energy production is outside Annex III point 2."}
+{"blind_id": "B017", "correct": true, "reason": "Yes: the draft lists anomaly detection for critical grid functions as high-risk."}
+{"blind_id": "B018", "correct": false, "reason": "It adds fundamental rights and indirect functions, which departs from the gold definition (health and safety of persons or property)."}
+{"blind_id": "B019", "correct": true, "reason": "Like the gold answer, it says registration is at national level under Article 49(5)."}
+{"blind_id": "B020", "correct": true, "reason": "No: efficiency or cost tools are not safety components."}
+{"blind_id": "B021", "correct": false, "reason": "It wrongly says third-party conformity assessment is required; the gold answer says internal control under Annex VI."}
+{"blind_id": "B022", "correct": false, "reason": "It says high-risk, but the gold answer says not high-risk."}
+{"blind_id": "B023", "correct": true, "reason": "Yes: the draft lists it within the high-risk electricity use case."}
+{"blind_id": "B024", "correct": true, "reason": "Nuclear production is excluded, though the electricity components could be included."}
+{"blind_id": "B025", "correct": true, "reason": "No: a direct protective safety function is required."}
+{"blind_id": "B026", "correct": false, "reason": "It cites transparency obligations instead of documenting the assessment and registering under Article 49(2)."}
+{"blind_id": "B027", "correct": false, "reason": "It says the system is not clearly high-risk, which contradicts the gold answer that it is high-risk."}
+{"blind_id": "B028", "correct": true, "reason": "Not high-risk: no direct safety function, one precautionary measure that enriches decisions."}
+{"blind_id": "B029", "correct": false, "reason": "It gives only a tentative, conditional answer based on 'mere conduit' reasoning, not the gold rationale (cybersecurity only, independent of OT)."}
+{"blind_id": "B030", "correct": false, "reason": "It says the EU database, but the gold answer requires national-level registration under Article 49(5)."}
+{"blind_id": "B031", "correct": false, "reason": "It gives the wrong application date (18 months after entry into force) instead of 2 December 2027."}
+{"blind_id": "B032", "correct": true, "reason": "Like the gold answer, it concludes the software is not an AI system because it only accelerates or approximates established methods."}
+{"blind_id": "B033", "correct": false, "reason": "It says Section A and full requirements apply, which contradicts the gold answer (Section B, limited articles)."}
+{"blind_id": "B034", "correct": false, "reason": "It gives no clear conclusion and says the guidelines do not address the case, while the gold answer says it is not AI."}
+{"blind_id": "B035", "correct": true, "reason": "No: human review does not change the intended purpose or the classification."}
+{"blind_id": "B036", "correct": true, "reason": "Only significant changes trigger the rules, the cut-off is 2 December 2027, and public-authority systems must comply by 2030."}
+{"blind_id": "B037", "correct": true, "reason": "It gives 2 December 2027, as the gold answer does."}
+{"blind_id": "B038", "correct": false, "reason": "The answer declined."}
+{"blind_id": "B039", "correct": false, "reason": "It wrongly says an external certification body is required."}
+{"blind_id": "B040", "correct": true, "reason": "No: such a product does not meet the Article 6(1)(b) condition."}
+{"blind_id": "B041", "correct": true, "reason": "Yes: the availability of a backup system is taken into account in the assessment."}
+{"blind_id": "B042", "correct": true, "reason": "Like the gold answer, it concludes the software falls outside the AI system definition."}
+{"blind_id": "B043", "correct": true, "reason": "Yes: a redundant or backup system is taken into consideration."}
+{"blind_id": "B044", "correct": true, "reason": "No: such a product does not meet Article 6(1)(b)."}
+{"blind_id": "B045", "correct": false, "reason": "It says the DSO's status does not affect classification, which contradicts the gold answer."}
+{"blind_id": "B046", "correct": true, "reason": "No: efficiency or cost reduction alone does not make a safety component."}
+{"blind_id": "B047", "correct": false, "reason": "It does not give the 2 December 2027 cut-off or the significant-change rule."}
+{"blind_id": "B048", "correct": false, "reason": "It gives 15 days instead of two days."}
+{"blind_id": "B049", "correct": false, "reason": "It suggests the software may be AI, which contradicts the gold answer that it falls outside the definition."}
+{"blind_id": "B050", "correct": true, "reason": "Under Article 6(1c), such a product does not meet Article 6(1)(b)."}
+{"blind_id": "B051", "correct": false, "reason": "It says a fallback safeguard does not matter, which contradicts the gold answer."}
+{"blind_id": "B052", "correct": false, "reason": "It describes Article 6(3) documentation and Article 49(2) registration instead of national-level registration under Article 49(5)."}
+{"blind_id": "B053", "correct": false, "reason": "It says no additional obligations apply and omits documentation and registration."}
+{"blind_id": "B054", "correct": false, "reason": "It describes the corrective-action duty, not serious-incident reporting within two days."}
+{"blind_id": "B055", "correct": false, "reason": "It says the company must ensure staff have appropriate knowledge, which contradicts the 'support, not guarantee' rule."}
+{"blind_id": "B056", "correct": true, "reason": "Nuclear production is excluded, though the electricity components could be included."}
+{"blind_id": "B057", "correct": false, "reason": "It says the deployer's status does not matter, which contradicts the gold answer."}
+{"blind_id": "B058", "correct": false, "reason": "The answer declined."}
+{"blind_id": "B059", "correct": true, "reason": "No: there is no direct safety function or direct link to harm."}
+{"blind_id": "B060", "correct": true, "reason": "It gives 2 December 2027, as the gold answer does."}
+{"blind_id": "B061", "correct": true, "reason": "A period appropriate to the purpose, at least six months, unless other law provides otherwise."}
+{"blind_id": "B062", "correct": false, "reason": "It defines a safety component by Annex I product membership instead of a prevent-or-mitigate-risk purpose."}
+{"blind_id": "B063", "correct": false, "reason": "It says a fundamental rights impact assessment is required, but critical infrastructure is exempt."}
+{"blind_id": "B064", "correct": false, "reason": "Section B is right, but it omits that only Article 6(1), Article 60a and Articles 102-112 apply."}
+{"blind_id": "B065", "correct": false, "reason": "It omits the 2 December 2027 date the question asks for."}
+{"blind_id": "B066", "correct": true, "reason": "Like the gold answer, it says human review alone is not enough because classification depends on intended purpose."}
+{"blind_id": "B067", "correct": false, "reason": "It says reactor safety AI is high-risk, which contradicts the nuclear exclusion."}
+{"blind_id": "B068", "correct": true, "reason": "At least six months unless other law provides otherwise."}
+{"blind_id": "B069", "correct": false, "reason": "It says a fallback safeguard does not determine classification, which contradicts the gold answer."}
+{"blind_id": "B070", "correct": false, "reason": "It gives 5 years instead of at least six months."}
+{"blind_id": "B071", "correct": false, "reason": "The answer declined."}
+{"blind_id": "B072", "correct": true, "reason": "At least six months unless Union or national law provides otherwise."}
+{"blind_id": "B073", "correct": false, "reason": "It suggests the model would be high-risk, which contradicts the gold answer."}
+{"blind_id": "B074", "correct": false, "reason": "It gives the wrong cut-off and says the system is subject to the rules."}
+{"blind_id": "B075", "correct": true, "reason": "The company must support AI literacy without guaranteeing a specific level."}
+{"blind_id": "B076", "correct": false, "reason": "It says high-risk, but the gold answer says the cybersecurity-only system is outside the use case."}
+{"blind_id": "B077", "correct": true, "reason": "Not high-risk: no direct safety function."}
+{"blind_id": "B078", "correct": true, "reason": "No: human review is not enough by itself and only matters through the Article 6(3) conditions."}
+{"blind_id": "B079", "correct": true, "reason": "No: it does not meet the Article 6(1)(b) test."}
+{"blind_id": "B080", "correct": false, "reason": "Settled by the author: turns the Article 3(14) 'or' into 'and', making failure or malfunction an extra condition."}
+{"blind_id": "B081", "correct": true, "reason": "High-risk, with the rules applying from 2 December 2027."}
+{"blind_id": "B082", "correct": true, "reason": "Yes: it is within the high-risk electricity use case."}
+{"blind_id": "B083", "correct": true, "reason": "Yes: it falls within the high-risk power-supply category."}
+{"blind_id": "B084", "correct": false, "reason": "It ties the outcome to critical-entity status instead of the cybersecurity-only exclusion."}
+{"blind_id": "B085", "correct": false, "reason": "It says a fundamental rights impact assessment is required, but critical infrastructure is exempt."}
+{"blind_id": "B086", "correct": false, "reason": "It says high-risk, but the gold answer says not high-risk."}
+{"blind_id": "B087", "correct": false, "reason": "It says a fundamental rights impact assessment is required, but Article 27(1) exempts critical infrastructure."}
+{"blind_id": "B088", "correct": false, "reason": "It omits the 2 December 2027 date the question asks for."}
+{"blind_id": "B089", "correct": true, "reason": "No: there is no direct safety function or direct link to harm."}
+{"blind_id": "B090", "correct": false, "reason": "It says Section A and the full requirements apply, which contradicts the gold answer."}
+{"blind_id": "B091", "correct": true, "reason": "No: a cybersecurity-only system independent of OT is not high-risk."}
+{"blind_id": "B092", "correct": true, "reason": "The company must support AI literacy without guaranteeing a specific level."}
