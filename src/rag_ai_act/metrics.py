@@ -10,12 +10,23 @@ from __future__ import annotations
 from rag_ai_act.ids import matches
 
 
+def _accepted(gold_id: str, alternatives: dict[str, list[str]] | None) -> list[str]:
+    """The gold ID plus the alternative IDs accepted for it (units that state the same answer equally directly)."""
+    return [gold_id, *((alternatives or {}).get(gold_id, []))]
+
+
+def _hit(ids: list[str], gold_id: str, alternatives: dict[str, list[str]] | None) -> bool:
+    return any(matches(i, a) for i in ids for a in _accepted(gold_id, alternatives))
+
+
 def evidence_ok(item: dict, cited_ids: list[str]) -> bool:
-    """single: at least one gold ID matched (ids.matches); multi: every gold ID matched; unanswerable: False."""
+    """single: at least one gold ID matched (ids.matches); multi: every gold ID matched; unanswerable: False.
+    A gold ID also counts as matched when one of its accepted alternatives (item["also_ok_ids"], a mapping
+    gold ID -> alternative IDs) is cited."""
     gold = item.get("gold_ids", [])
     if item.get("type") == "unanswerable" or not gold:
         return False
-    hits = [any(matches(c, g) for c in cited_ids) for g in gold]
+    hits = [_hit(cited_ids, g, item.get("also_ok_ids")) for g in gold]
     return all(hits) if item["type"] == "multi" else any(hits)
 
 
@@ -29,19 +40,20 @@ def strict_correct(item: dict, answer: dict, correct: bool) -> bool:
     return evidence_ok(item, answer["cited_ids"])
 
 
-def recall_share(gold_ids: list[str], ids: list[str]) -> float:
-    """Share of gold IDs matched by any of ids (ids.matches). Used for recall@5 (first 5 retrieved_ids)
-    and for S3 evidence recall (all retrieved_ids)."""
+def recall_share(gold_ids: list[str], ids: list[str], alternatives: dict[str, list[str]] | None = None) -> float:
+    """Share of gold IDs matched by any of ids (ids.matches), a gold ID also counting as matched through one
+    of its accepted alternatives. Used for recall@5 (first 5 retrieved_ids) and for S3 evidence recall."""
     if not gold_ids:
         return 0.0
-    return sum(any(matches(i, g) for i in ids) for g in gold_ids) / len(gold_ids)
+    return sum(_hit(ids, g, alternatives) for g in gold_ids) / len(gold_ids)
 
 
-def citation_precision(gold_ids: list[str], cited_ids: list[str]) -> float | None:
-    """Share of cited IDs matching some gold ID; None if nothing cited."""
+def citation_precision(gold_ids: list[str], cited_ids: list[str],
+                       alternatives: dict[str, list[str]] | None = None) -> float | None:
+    """Share of cited IDs matching some gold ID or one of its accepted alternatives; None if nothing cited."""
     if not cited_ids:
         return None
-    return sum(any(matches(c, g) for g in gold_ids) for c in cited_ids) / len(cited_ids)
+    return sum(any(_hit([c], g, alternatives) for g in gold_ids) for c in cited_ids) / len(cited_ids)
 
 
 def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[tuple[str, str], bool] | None) -> dict:
@@ -87,14 +99,17 @@ def summarize(items: list[dict], answers: dict[str, list[dict]], correct: dict[t
         def false_decline(rec):
             return declined(rec)  # missing answers have their own count, not a decline
 
-        precisions = [citation_precision(it["gold_ids"], rec["cited_ids"]) for it, rec in pairs if rec["valid"]]
+        precisions = [citation_precision(it["gold_ids"], rec["cited_ids"], it.get("also_ok_ids"))
+                      for it, rec in pairs if rec["valid"]]
         cited = [p for p in precisions if p is not None]
         recall = None
         if system in ("S1", "S2") and pairs:
-            recall = sum(recall_share(it["gold_ids"], rec["retrieved_ids"][:5]) for it, rec in pairs) / len(pairs)
+            recall = sum(recall_share(it["gold_ids"], rec["retrieved_ids"][:5], it.get("also_ok_ids"))
+                         for it, rec in pairs) / len(pairs)
         evidence = None
         if system == "S3" and pairs:
-            evidence = sum(recall_share(it["gold_ids"], rec["retrieved_ids"]) for it, rec in pairs) / len(pairs)
+            evidence = sum(recall_share(it["gold_ids"], rec["retrieved_ids"], it.get("also_ok_ids"))
+                           for it, rec in pairs) / len(pairs)
         everything = pairs + upairs
         out[system] = {
             "H1": h1(pairs) if graded else None,
