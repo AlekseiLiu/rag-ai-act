@@ -1,0 +1,39 @@
+{
+ "chat_deployment": "gpt-4.1-mini",
+ "embed_deployment": "text-embedding-3-small",
+ "api_version": "2024-10-21",
+ "packages": {
+  "faiss-cpu": "1.15.1",
+  "langchain-core": "1.7.4",
+  "langchain-openai": "1.7.3",
+  "langchain-text-splitters": "1.1.3",
+  "langgraph": "1.2.19",
+  "langgraph-checkpoint": "4.3.1",
+  "langgraph-prebuilt": "1.1.1",
+  "numpy": "2.5.4",
+  "openai": "3.45.0",
+  "python-dotenv": "1.2.4",
+  "rank-bm25": "0.2.2",
+  "tiktoken": "0.14.0"
+ },
+ "python": "3.14.8",
+ "pdftotext": "pdftotext version 22.02.0",
+ "git_commit": "a715e7cdf4592aa452dbb3a5e32ac0c5f0f8b340",
+ "git_dirty": true,
+ "started_at": "2026-11-04T14:26:07+00:00",
+ "budget": {
+  "spent_eur": 0.07125972240000006,
+  "warned": false,
+  "stopped": false
+ },
+ "stopped_at": null,
+ "systems": [
+  "S0",
+  "S1",
+  "S2",
+  "S3"
+ ],
+ "questions_file": "dev_v0.jsonl",
+ "questions_sha256": "184965aa178e8ccb8116bf1edec48bd8a3cabc7f040ad095413e4fd470ea5738",
+ "runtime_s": 432.9
+}

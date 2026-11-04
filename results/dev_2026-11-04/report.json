@@ -1,0 +1,273 @@
+{
+ "verdicts_source": "verdicts_1",
+ "settled": false,
+ "summary": {
+  "S0": {
+   "H1": {
+    "n": 0,
+    "of": 16,
+    "pct": 0.0
+   },
+   "H2": {
+    "n": 0,
+    "of": 14,
+    "pct": 0.0
+   },
+   "H3": {
+    "n": 3,
+    "of": 4,
+    "pct": 75.0
+   },
+   "false_declines": {
+    "n": 0,
+    "of": 16,
+    "pct": 0.0
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 0,
+     "of": 2,
+     "pct": 0.0
+    },
+    "2026": {
+     "n": 0,
+     "of": 14,
+     "pct": 0.0
+    }
+   },
+   "recall_at_5": null,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.0625,
+    "n_citing_nothing": 0
+   },
+   "multi_hop": {
+    "n": 0,
+    "of": 4,
+    "pct": 0.0
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.006559968000000001
+  },
+  "S1": {
+   "H1": {
+    "n": 10,
+    "of": 16,
+    "pct": 62.5
+   },
+   "H2": {
+    "n": 9,
+    "of": 14,
+    "pct": 64.3
+   },
+   "H3": {
+    "n": 4,
+    "of": 4,
+    "pct": 100.0
+   },
+   "false_declines": {
+    "n": 1,
+    "of": 16,
+    "pct": 6.2
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 1,
+     "of": 2,
+     "pct": 50.0
+    },
+    "2026": {
+     "n": 9,
+     "of": 14,
+     "pct": 64.3
+    }
+   },
+   "recall_at_5": 0.78125,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.6777777777777777,
+    "n_citing_nothing": 1
+   },
+   "multi_hop": {
+    "n": 0,
+    "of": 4,
+    "pct": 0.0
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.013524368000000002
+  },
+  "S2": {
+   "H1": {
+    "n": 10,
+    "of": 16,
+    "pct": 62.5
+   },
+   "H2": {
+    "n": 8,
+    "of": 14,
+    "pct": 57.1
+   },
+   "H3": {
+    "n": 4,
+    "of": 4,
+    "pct": 100.0
+   },
+   "false_declines": {
+    "n": 1,
+    "of": 16,
+    "pct": 6.2
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 2,
+     "of": 2,
+     "pct": 100.0
+    },
+    "2026": {
+     "n": 8,
+     "of": 14,
+     "pct": 57.1
+    }
+   },
+   "recall_at_5": 0.71875,
+   "evidence_recall": null,
+   "citation_precision": {
+    "mean": 0.7222222222222222,
+    "n_citing_nothing": 1
+   },
+   "multi_hop": {
+    "n": 0,
+    "of": 4,
+    "pct": 0.0
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.010762896000000001
+  },
+  "S3": {
+   "H1": {
+    "n": 11,
+    "of": 16,
+    "pct": 68.8
+   },
+   "H2": {
+    "n": 9,
+    "of": 14,
+    "pct": 64.3
+   },
+   "H3": {
+    "n": 3,
+    "of": 4,
+    "pct": 75.0
+   },
+   "false_declines": {
+    "n": 0,
+    "of": 16,
+    "pct": 0.0
+   },
+   "h1_by_era": {
+    "2024": {
+     "n": 2,
+     "of": 2,
+     "pct": 100.0
+    },
+    "2026": {
+     "n": 9,
+     "of": 14,
+     "pct": 64.3
+    }
+   },
+   "recall_at_5": null,
+   "evidence_recall": 0.8125,
+   "citation_precision": {
+    "mean": 0.5625,
+    "n_citing_nothing": 0
+   },
+   "multi_hop": {
+    "n": 2,
+    "of": 4,
+    "pct": 50.0
+   },
+   "invalid": 0,
+   "missing": 0,
+   "eur": 0.04041249040000001
+  }
+ },
+ "band": "partial",
+ "agreement": null,
+ "answer_only": {
+  "S0": {
+   "all": {
+    "n": 7,
+    "of": 16,
+    "pct": 43.8
+   },
+   "2024": {
+    "n": 1,
+    "of": 2,
+    "pct": 50.0
+   },
+   "2026": {
+    "n": 6,
+    "of": 14,
+    "pct": 42.9
+   }
+  },
+  "S1": {
+   "all": {
+    "n": 13,
+    "of": 16,
+    "pct": 81.2
+   },
+   "2024": {
+    "n": 1,
+    "of": 2,
+    "pct": 50.0
+   },
+   "2026": {
+    "n": 12,
+    "of": 14,
+    "pct": 85.7
+   }
+  },
+  "S2": {
+   "all": {
+    "n": 14,
+    "of": 16,
+    "pct": 87.5
+   },
+   "2024": {
+    "n": 2,
+    "of": 2,
+    "pct": 100.0
+   },
+   "2026": {
+    "n": 12,
+    "of": 14,
+    "pct": 85.7
+   }
+  },
+  "S3": {
+   "all": {
+    "n": 14,
+    "of": 16,
+    "pct": 87.5
+   },
+   "2024": {
+    "n": 2,
+    "of": 2,
+    "pct": 100.0
+   },
+   "2026": {
+    "n": 12,
+    "of": 14,
+    "pct": 85.7
+   }
+  }
+ },
+ "paraphrase_stability": {},
+ "run_stopped_at_budget": false,
+ "missing_answers": 0
+}

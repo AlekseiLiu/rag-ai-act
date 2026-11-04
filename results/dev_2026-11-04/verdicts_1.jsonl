@@ -1,0 +1,64 @@
+{"blind_id": "B001", "correct": true, "reason": "Says not high-risk and gives the same reasons as the gold answer."}
+{"blind_id": "B002", "correct": true, "reason": "Gives the same date, 2 September 2027."}
+{"blind_id": "B003", "correct": false, "reason": "Says it is not in the water-supply use case; the gold answer says it is."}
+{"blind_id": "B004", "correct": true, "reason": "Names Article 50(2) and the 2 December 2026 deadline."}
+{"blind_id": "B005", "correct": true, "reason": "Says no, as the gold answer does."}
+{"blind_id": "B006", "correct": false, "reason": "Says it is not RBI but also calls it high-risk as biometric identification in critical infrastructure, which contradicts the gold answer that it falls outside point 1(a)."}
+{"blind_id": "B007", "correct": true, "reason": "Concludes that oil operators are not covered."}
+{"blind_id": "B008", "correct": true, "reason": "Says it is high-risk under Annex III point 2."}
+{"blind_id": "B009", "correct": true, "reason": "Says it is not an AI system because it follows fixed rules."}
+{"blind_id": "B010", "correct": true, "reason": "Gives the same date, 2 September 2027."}
+{"blind_id": "B011", "correct": true, "reason": "Says no and explains that safety components address physical harm."}
+{"blind_id": "B012", "correct": true, "reason": "Names the Article 50(2) machine-readable marking and the 2 December 2026 deadline."}
+{"blind_id": "B013", "correct": true, "reason": "Says not high-risk, using the same comfort and energy-efficiency reasoning."}
+{"blind_id": "B014", "correct": true, "reason": "Gives the same date, 2 August 2027."}
+{"blind_id": "B015", "correct": true, "reason": "Names both the workers and their representatives."}
+{"blind_id": "B016", "correct": true, "reason": "Names workers' representatives and the affected workers."}
+{"blind_id": "B017", "correct": true, "reason": "Says it is not high-risk RBI because it does verification for access control."}
+{"blind_id": "B018", "correct": true, "reason": "Says not high-risk and gives the same reasons as the gold answer."}
+{"blind_id": "B019", "correct": true, "reason": "Says no, the filter cannot be used, and nothing in it contradicts the gold answer."}
+{"blind_id": "B020", "correct": true, "reason": "Cites Article 2(4) of Directive (EU) 2022/2557."}
+{"blind_id": "B021", "correct": true, "reason": "Says yes and gives the same reasoning."}
+{"blind_id": "B022", "correct": true, "reason": "Says not high-risk because the robots lack a safety function."}
+{"blind_id": "B023", "correct": false, "reason": "Gives \"12 months after entry into force\" instead of 2 September 2027."}
+{"blind_id": "B024", "correct": true, "reason": "Says it is not an AI system, using the same reasoning."}
+{"blind_id": "B025", "correct": true, "reason": "Says no, oil operators are not included."}
+{"blind_id": "B026", "correct": true, "reason": "Says generally not high-risk, using the same reasoning."}
+{"blind_id": "B027", "correct": true, "reason": "Says it would not be a safety component."}
+{"blind_id": "B028", "correct": true, "reason": "Says yes, it is a safety component used in drinking-water distribution."}
+{"blind_id": "B029", "correct": false, "reason": "Says it is likely an AI system; the gold answer says it is not."}
+{"blind_id": "B030", "correct": true, "reason": "Says not high-risk because it lacks a safety function."}
+{"blind_id": "B031", "correct": false, "reason": "Gives the wrong extra condition (Annex II safety component) and leaves out the third-party conformity assessment requirement."}
+{"blind_id": "B032", "correct": true, "reason": "Says not high-risk because it lacks a safety function."}
+{"blind_id": "B033", "correct": false, "reason": "Leaves out the required extra condition, the third-party conformity assessment."}
+{"blind_id": "B034", "correct": true, "reason": "Says not high-risk and gives the same reasons as the gold answer."}
+{"blind_id": "B035", "correct": true, "reason": "Says no and explains that the filter applies only to Article 6(2) systems."}
+{"blind_id": "B036", "correct": true, "reason": "Says high-risk and gives the same reasoning; the added condition about a critical entity does not contradict the gold answer."}
+{"blind_id": "B037", "correct": false, "reason": "Says high-risk status depends only on Annex III and never makes the safety-component point, which contradicts the gold answer's reasoning."}
+{"blind_id": "B038", "correct": true, "reason": "Gives the same date, 2 September 2027."}
+{"blind_id": "B039", "correct": true, "reason": "Says yes, it falls within the water-supply use case as a safety component."}
+{"blind_id": "B040", "correct": false, "reason": "Gives 30 June 2025 instead of 2 August 2027."}
+{"blind_id": "B041", "correct": false, "reason": "Gives 7 July 2025 as the deadline instead of 2 December 2026."}
+{"blind_id": "B042", "correct": false, "reason": "Says no but treats the filter as applying in principle subject to its conditions, which contradicts the gold answer that it does not apply to Article 6(1) systems."}
+{"blind_id": "B043", "correct": true, "reason": "Says high-risk and gives the same reasoning."}
+{"blind_id": "B044", "correct": false, "reason": "Does not name Directive (EU) 2022/2557 and points vaguely to Union or Member State law."}
+{"blind_id": "B045", "correct": true, "reason": "Says it is not a high-risk RBI system."}
+{"blind_id": "B046", "correct": false, "reason": "Leaves out the third-party conformity assessment condition."}
+{"blind_id": "B047", "correct": true, "reason": "Cites Article 3(62) and Directive (EU) 2022/2557 Article 2(4)."}
+{"blind_id": "B048", "correct": true, "reason": "Names workers' representatives and the affected workers."}
+{"blind_id": "B049", "correct": true, "reason": "Says not high-risk, using the same reasoning."}
+{"blind_id": "B050", "correct": true, "reason": "Says oil operators are not covered."}
+{"blind_id": "B051", "correct": false, "reason": "Leaves out the third-party conformity assessment condition."}
+{"blind_id": "B052", "correct": true, "reason": "Gives the same date, 2 August 2027."}
+{"blind_id": "B053", "correct": true, "reason": "Says it is not a high-risk RBI system."}
+{"blind_id": "B054", "correct": true, "reason": "Says yes, it falls within the water-supply use case."}
+{"blind_id": "B055", "correct": false, "reason": "The answer was declined."}
+{"blind_id": "B056", "correct": false, "reason": "Says high-risk; the gold answer says not high-risk."}
+{"blind_id": "B057", "correct": true, "reason": "Names workers' representatives and the affected workers."}
+{"blind_id": "B058", "correct": true, "reason": "Says no, the filter cannot be used."}
+{"blind_id": "B059", "correct": true, "reason": "Says not high-risk."}
+{"blind_id": "B060", "correct": true, "reason": "Says no, as the gold answer does."}
+{"blind_id": "B061", "correct": true, "reason": "Names the Article 50(2) marking and the 2 December 2026 deadline."}
+{"blind_id": "B062", "correct": true, "reason": "Gives the same date, 2 August 2027."}
+{"blind_id": "B063", "correct": true, "reason": "Says no, oil operators are not covered."}
+{"blind_id": "B064", "correct": false, "reason": "The answer was declined."}
