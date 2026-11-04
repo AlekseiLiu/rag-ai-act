@@ -6,7 +6,11 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    # Ubuntu 22.04 ships pdftotext 22.02, the version recorded in results/*/meta.json for the published runs.
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,5 +24,17 @@ jobs:
         run: python -c "import tiktoken; tiktoken.get_encoding('cl100k_base')"
       - name: Lint
         run: ruff check src tests
-      - name: Test
-        run: pytest -q
+      - name: Test (leak test enabled)
+        run: HELDOUT_DIR=eval/heldout pytest -q
+      - name: Published reports match the committed verdicts
+        run: |
+          make reports PY=python
+          git diff --exit-code results/
+      - name: Ingest the committed PDFs (sha256 check, coverage check, no Azure)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          make fetch PY=python
+          set -o pipefail
+          make ingest PY=python | tee ingest.log
+          grep -q "ingest: 1249 units, 1273 chunks" ingest.log

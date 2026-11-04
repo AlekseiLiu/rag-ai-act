@@ -1,5 +1,5 @@
 PY ?= .venv/bin/python
-.PHONY: test lint fetch ingest index eval grading-export report chunk-compare check
+.PHONY: test lint fetch ingest index eval grading-export report reports chunk-compare check
 test:
 	$(PY) -m pytest -q
 lint:
@@ -18,5 +18,10 @@ grading-export:
 	$(PY) -m rag_ai_act grading-export --results $(RESULTS) --out $(GRADING_DIR)
 report:
 	$(PY) -m rag_ai_act report --results $(RESULTS)
+# Rebuild report.md and report.json in every results folder that has graded answers (offline, deterministic).
+GRADED := $(patsubst %/verdicts_1.jsonl,%,$(wildcard results/*/verdicts_1.jsonl))
+reports:
+	@test -n "$(GRADED)" || { echo "no results/*/verdicts_1.jsonl found"; exit 1; }
+	@for d in $(GRADED); do $(PY) -m rag_ai_act report --results $$d || exit 1; done
 chunk-compare: ingest
 	$(PY) -m rag_ai_act chunk-compare --questions eval/dev_v0.jsonl

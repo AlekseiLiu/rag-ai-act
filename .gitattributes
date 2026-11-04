@@ -1,0 +1,3 @@
+# PDFs are binary: no text diffs or line-ending changes.
+*.pdf binary
+*.PDF binary

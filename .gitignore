@@ -1,7 +1,10 @@
 .env
 .venv/
 __pycache__/
-data/raw/
+# Source PDFs are tracked (data/raw/*.pdf, *.PDF); anything else dropped there is not.
+data/raw/*
+!data/raw/*.pdf
+!data/raw/*.PDF
 data/text/
 data/processed/
 data/index/

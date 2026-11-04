@@ -1,8 +1,13 @@
 # Sources
 
-Six PDF files in `data/raw/` (gitignored). `python -m rag_ai_act fetch` checks each file against the SHA-256 below,
-downloads the Commission files that are missing, and prints a manual download line for the EUR-Lex files
-(EUR-Lex answers scripted requests with a bot check). All files were retrieved on 2026-11-03.
+The six PDF files below are committed in `data/raw/`, unchanged, so the corpus is exact and `make ingest` works
+offline. Their licences allow redistribution with attribution: EUR-Lex documents may be reused under Commission
+Decision 2011/833/EU, and the Commission guidelines are published under CC BY 4.0. Source: EUR-Lex and the European
+Commission; URLs and retrieval dates are in the table. All files were retrieved on 2026-11-03.
+
+`python -m rag_ai_act fetch` (or `make fetch`) checks each file against the SHA-256 below. If a file is missing, it
+downloads the Commission files again and prints a manual download line for the EUR-Lex files (EUR-Lex answers
+scripted requests with a bot check). `ingest` refuses to run when any file is missing or differs.
 
 | File | Role | URL | Retrieved | SHA-256 | Licence |
 |---|---|---|---|---|---|
@@ -14,3 +19,6 @@ downloads the Commission files that are missing, and prints a manual download li
 | `Commission_Guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_Regulation_EU_20241689_AI_ActEnglish_nf2skCqfRtJdFgGJAvCODoPCWZ4_112455.PDF` | indexed: Commission guidelines on the definition of an AI system | https://ec.europa.eu/newsroom/dae/redirection/document/112455 | 2026-11-03 | `fe39f41d061184a913c32f1f92aaaa30a096858fa168c6053e22a19eef58910e` | CC BY 4.0 (European Commission) |
 
 The guidelines on high-risk classification are drafts: they are indexed as such and every chunk from them is flagged as a draft.
+
+Attribution: AI Act texts © European Union, https://eur-lex.europa.eu. Commission guidelines © European Union,
+licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). The PDF files are redistributed unchanged.
