@@ -1,0 +1,80 @@
+# rag-ai-act
+
+Cited question answering over the EU AI Act (consolidated text, 2026) and the European Commission's draft guidelines
+on high-risk classification, with a focus on AI in power grids. Four answer systems on Azure OpenAI are compared on a
+held-out question set: no retrieval, BM25 retrieval, dense (FAISS) retrieval, and a LangGraph agent with three tools.
+
+The author taught a university seminar on the implications of the AI Act for machine learning (2024, 2025). The Act
+changed since then, and its guidelines are still drafts, so a model's memory of the law is a risky source. This project
+measures whether retrieval and tool use fix that, and how often a system should decline instead of answering.
+
+## Problem
+
+Questions such as "Is a predictive-maintenance tool for gas pipeline monitoring high-risk under the draft guidelines?"
+need the right provision, its current wording, and an honest "not in the sources" when the answer is not there. An
+answer counts only if it is correct and cites the right source IDs (for example `AIA:Art6(2)` or `GLHR:para204`).
+
+## How it works
+
+- **Ingest.** PDFs in `data/raw/` become legal units (one per paragraph, definition, annex point or guideline
+  paragraph), each with a stable source ID and a draft flag, then chunks of at most 1,000 tokens. A coverage check
+  fails the build if an article or guideline paragraph is missing or duplicated.
+- **Systems.** All four share the model, the answer prompt, the chunks and the questions.
+  - S0: the model alone, no sources.
+  - S1: top 5 chunks by BM25.
+  - S2: top 5 chunks by dense retrieval (Azure embeddings, FAISS).
+  - S3: a LangGraph agent with `search`, `get_provision` (exact lookup by ID) and `applicability_date`, limited to 6 tool calls.
+- **Answer contract.** Every answer is a JSON object with the answer text, the cited source IDs and a `declined` flag.
+  Malformed output counts as wrong and never crashes a run.
+- **Evaluation.** Answerable questions are graded blind by an LLM grader (system names and question IDs hidden), twice,
+  and agreement is reported. Citations are scored mechanically against gold IDs. Unanswerable questions are scored by
+  whether the system declined.
+- **Measures.** H1: strict accuracy (correct, not declined, valid, right source IDs). H2: the same on questions where
+  the 2026 text differs from the 2024 text. H3: unanswerable questions declined. Guard: answerable questions
+  wrongly declined. A fixed verdict rule (useless, partial, good) is applied to the numbers.
+- **Cost control.** A budget wrapper reserves the cost of every Azure call, warns at 1 EUR and stops at 3 EUR per
+  run, keeping partial results.
+
+## Results
+
+Pending final run.
+
+## Reproduce
+
+```
+python -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/pip install -e .
+make fetch        # verify data/raw against data/SOURCES.md (EUR-Lex files are manual downloads)
+make ingest       # data/raw -> data/processed, coverage-checked (needs pdftotext from poppler)
+make check        # ruff + offline tests (no Azure needed)
+```
+
+With Azure OpenAI credentials in `.env` (`AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_API_VERSION`,
+`AZURE_OPENAI_CHAT_DEPLOYMENT`, `AZURE_OPENAI_EMBED_DEPLOYMENT`):
+
+```
+make index
+python -m rag_ai_act eval --questions eval/dev_v0.jsonl --out results/dev_run
+make chunk-compare                      # dev-set diagnostic: unit chunks vs fixed 500-token chunks
+python -m rag_ai_act report --results results/dev_run   # after grading: verdicts_1.jsonl, verdicts_2.jsonl, verdicts_final.jsonl
+```
+
+`eval` writes `answers_<S>.jsonl`, `blind.jsonl`, `blind_key.json`, `meta.json` and `draft_report.md`. `eval/dev_v0.jsonl`
+is a development set used to tune prompts; the held-out set is kept apart and used once.
+
+## Limitations
+
+- **Draft guidelines.** The high-risk classification guidelines are drafts and may change. Stale draft passages
+  (for example 2024-era dates) are kept on purpose, and every system sees the same chunks, so none gets a cleaner corpus
+  than the others.
+- **S0 cannot cite documents it has never seen.** Strict accuracy therefore penalises S0 by construction; answer-only
+  correctness (the grader's verdict alone, without the citation rule) is reported next to it, per system and era.
+- **Small n.** The held-out set has 24 answerable and 6 unanswerable questions. One question moves a score by about
+  four points; differences of one or two questions are noise.
+- **LLM grading.** Correctness is judged by a language model, blind and twice, with agreement reported. It is not a
+  human expert's judgement.
+- **Not legal advice.** This is a research and engineering exercise.
+
+## Credits
+
+The AI Act and its consolidated text come from EUR-Lex (reuse under Commission Decision 2011/833/EU). The guidelines are
+documents of the European Commission (CC BY 4.0). Sources and checksums are in `data/SOURCES.md`. Code is MIT licensed.
